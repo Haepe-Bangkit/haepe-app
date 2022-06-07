@@ -1,6 +1,8 @@
 package com.example.cemaraapps
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.PorterDuff
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -13,16 +15,17 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
-import com.example.cemaraapps.ClassHelper.PrefManager
+import com.example.cemaraapps.databinding.ActivityIntroBinding
 
 class IntroActivity : AppCompatActivity() {
-
+    private lateinit var binding: ActivityIntroBinding
     private lateinit var btn_got_it: Button
     private val title_array = arrayOf(
         "Fitur Kalender", "Member's info",
         "Buat atau gabung family", "Grafik yang keren"
     )
-    private var prefManager: PrefManager? = null
+    lateinit var preference : SharedPreferences
+    val pref_show_intro = "intro"
     private val description_array = arrayOf(
         "Dengan fitur ini, anda menambahkan tugas harian bersama keluarga",
         "Anda juga perlu mengisi data keahlian anda",
@@ -40,46 +43,48 @@ class IntroActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val extra_name = intent.getStringExtra(LoginActivity.EXTRA_NAME)
+       val extra_name = intent.getStringExtra(LoginActivity.EXTRA_NAME)
 
-        prefManager = PrefManager(this)
-        if (!prefManager!!.isFirstTimeLaunch) {
-            prefManager!!.isFirstTimeLaunch == true
+        if(!preference.getBoolean(pref_show_intro,true)){
             val intent = Intent(this@IntroActivity, MainActivity::class.java)
             intent.putExtra(EXTRA_NAME2,extra_name)
             startActivity(intent)
-            finish()
         }
-        setContentView(R.layout.activity_intro)
-
+        binding = ActivityIntroBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        preference = getSharedPreferences("Intro Slider", Context.MODE_PRIVATE)
         initComponent()
 
     }
 
     private fun initComponent() {
         val extra_name = intent.getStringExtra(LoginActivity.EXTRA_NAME)
-        val viewPager = findViewById<ViewPager>(R.id.view_pager)
-        btn_got_it = findViewById(R.id.btn_got_it)
+        val viewPager = binding.viewPager
         bottomProgressDots(0)
-        val myViewPagerAdapter: MyViewPagerAdapter = MyViewPagerAdapter()
+        val myViewPagerAdapter = MyViewPagerAdapter()
         viewPager.adapter = myViewPagerAdapter
         viewPager.addOnPageChangeListener(viewPagerPageChangeListener)
+        val editor = preference.edit()
+        binding.btnGotIt.setVisibility(View.GONE)
+        binding.btnGotIt.setOnClickListener{
+            val intent = Intent(this@IntroActivity, MainActivity::class.java)
+            intent.putExtra(EXTRA_NAME2,extra_name)
+            startActivity(intent)
+            finish()
+            editor.putBoolean(pref_show_intro,false)
+        }
+        binding.btnSkip.setOnClickListener {
+            val intent = Intent(this@IntroActivity, MainActivity::class.java)
+            intent.putExtra(EXTRA_NAME2,extra_name)
+            startActivity(intent)
+            finish()
+            editor.putBoolean(pref_show_intro,false)
 
-        btn_got_it.setVisibility(View.GONE)
-        btn_got_it.setOnClickListener(View.OnClickListener {
-            val intent = Intent(this@IntroActivity, MainActivity::class.java)
-            intent.putExtra(EXTRA_NAME2,extra_name)
-            startActivity(intent)
-        })
-        findViewById<View>(R.id.btn_skip).setOnClickListener {
-            val intent = Intent(this@IntroActivity, MainActivity::class.java)
-            intent.putExtra(EXTRA_NAME2,extra_name)
-            startActivity(intent)
         }
     }
 
     private fun bottomProgressDots(index: Int) {
-        val dotsLayout = findViewById<LinearLayout>(R.id.layoutDots)
+        val dotsLayout = binding.layoutDots
         val dots = arrayOfNulls<ImageView>(MAX_STEP)
         dotsLayout.removeAllViews()
         for (i in dots.indices) {
