@@ -1,9 +1,12 @@
 package com.example.cemaraapps
 
+import android.app.TimePickerDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.example.cemaraapps.CalendarActivity.Companion.EXTRA_DATE
 import com.example.cemaraapps.databinding.ActivityTaskBinding
+import java.util.*
 
 class TaskActivity : AppCompatActivity() {
     private lateinit var binding: ActivityTaskBinding
@@ -18,27 +21,19 @@ class TaskActivity : AppCompatActivity() {
             backTask.setOnClickListener {
                 super.onBackPressed()
             }
+            btnAddTask.setOnClickListener {
+                Toast.makeText(applicationContext, "Task Berhasil ditambahkan", Toast.LENGTH_SHORT).show()
+            }
+            etDate.text = intent.getStringExtra(EXTRA_DATE)
+            startTimeButton.setOnClickListener {
+                val currentTimeStart = Calendar.getInstance()
+                val startHour = currentTimeStart.get(Calendar.HOUR_OF_DAY)
+                val startMinute = currentTimeStart.get(Calendar.MINUTE)
+                TimePickerDialog(this@TaskActivity, { View, HourOfDay, Minute->
+                    etStart.setText("$HourOfDay : $Minute")
+                },startHour,startMinute,false).show()
+            }
         }
-        binding.btnAddTask.setOnClickListener {
 
-            Toast.makeText(applicationContext, "Task Berhasil ditambahkan", Toast.LENGTH_SHORT).show()
-
-            val taskActivity = hashMapOf(
-                "title" to binding.etTitle.text.toString(),
-                "date" to binding.etDate.text.toString(),
-                "start" to binding.etStart.text.toString(),
-                "end" to binding.etEnd.text.toString(),
-                "who" to binding.etWho.text.toString(),
-                "Description" to binding.etDes.text.toString(),
-
-                )
-//            firestore.collection("List Task").document(binding.etTitle.text.toString()).set(taskActivity)
-//                .addOnSuccessListener {
-//                    Toast.makeText(this, "Task Added", Toast.LENGTH_LONG).show()
-//                }.addOnFailureListener {
-//                    Toast.makeText(this, "Failed", Toast.LENGTH_LONG).show()
-//                }
-            super.onBackPressed()
-        }
     }
 }
