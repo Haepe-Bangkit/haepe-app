@@ -5,6 +5,7 @@ import com.example.cemaraapps.LoginResponse
 import retrofit2.Call
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
+import retrofit2.http.GET
 import retrofit2.http.POST
 
 interface ApiService {
@@ -20,7 +21,14 @@ interface ApiService {
 
     @FormUrlEncoded
     @POST("family")
-    fun getFamily(
+    fun createFamily(
+        @Field("name") name: String
+    ): Call<FamilyResponse>
+
+    @FormUrlEncoded
+    @GET("family")
+    fun getFamilyId(
         @Field("name") name: String,
+        @Field("id") id: String
     ): Call<FamilyResponse>
 }

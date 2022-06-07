@@ -31,5 +31,9 @@ data class FamilyResponse(
     @field:SerializedName("error")
     val error: String,
     @field:SerializedName("message")
-    val message: String
+    val message: String,
+    @field:SerializedName("name")
+    val name: String,
+    @field:SerializedName("id")
+    val id: String
 )

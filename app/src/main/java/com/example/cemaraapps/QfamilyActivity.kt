@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Gravity
 import android.view.Window
+import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDialog
 import androidx.appcompat.widget.AppCompatButton
@@ -23,6 +24,7 @@ class QfamilyActivity : AppCompatActivity() {
     private lateinit var PopUpYesDialog: Dialog
     private lateinit var PopUpNoDialog: Dialog
     private lateinit var BtnInput: AppCompatButton
+//    private lateinit var et_create: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityQfamilyBinding.inflate(layoutInflater)
@@ -52,6 +54,9 @@ class QfamilyActivity : AppCompatActivity() {
         }
 
     }
+    private fun createFam(){
+
+    }
 
     private fun PopUpYes(){
         PopUpYesDialog.show()
@@ -72,30 +77,27 @@ class QfamilyActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
-//    private fun setCreateFam(){
-//        ApiConfig.getApiService().getLogin(code, client_id, client_secret,grant_type,redirect_uri)
-//            .enqueue(object: Callback<LoginResponse> {
-//                override fun onResponse(
-//                    call: Call<LoginResponse>,
-//                    response: Response<LoginResponse>
-//                ) {
-//                    if (response.isSuccessful){
-//                        val user = response.body()
-//                        user!!.access_token.let { Log.e("access_token",it) }
-//                        user!!.client_id?.let { Log.e("id", it) }
-//                        user!!.code?.let { Log.e("code", it) }
-//                        user!!.client_secret.let { Log.e("client_sec",it) }
-//                        user!!.grant_type.let { Log.d("grant",it) }
-//                        user!!.redirect_uri.let{ Log.d("uri",it)}
-//                    }
-//                }
-//
-//                override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+    private fun setCreateFam(name: String){
+        ApiConfig.getApiService().createFamily("Nasution Family")
+            .enqueue(object: Callback<FamilyResponse> {
+                override fun onResponse(
+                    call: Call<FamilyResponse>,
+                    response: Response<FamilyResponse>
+                ) {
+                    if (response.isSuccessful){
+                        val user = response.body()
+                        user!!.name.let { Log.e("name",it) }
+                    }
+                }
+
+                override fun onFailure(call: Call<FamilyResponse>, t: Throwable) {
 //                    Log.d(ContentValues.TAG, "onFailure: ${t.message.toString()}")
-//                }
-//
-//            })
-//    }
+
+                }
+
+            })
+    }
+
 
     private fun randomCode():String{
         val alphabet= "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
