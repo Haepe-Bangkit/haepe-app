@@ -1,14 +1,21 @@
 package com.example.cemaraapps
 
 import android.app.Dialog
+import android.content.ContentValues
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Gravity
 import android.view.Window
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatDialog
 import androidx.appcompat.widget.AppCompatButton
+import com.example.cemaraapps.Api.ApiConfig
 import com.example.cemaraapps.databinding.ActivityQfamilyBinding
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.util.*
 
 class QfamilyActivity : AppCompatActivity() {
@@ -65,6 +72,30 @@ class QfamilyActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+//    private fun setCreateFam(){
+//        ApiConfig.getApiService().getLogin(code, client_id, client_secret,grant_type,redirect_uri)
+//            .enqueue(object: Callback<LoginResponse> {
+//                override fun onResponse(
+//                    call: Call<LoginResponse>,
+//                    response: Response<LoginResponse>
+//                ) {
+//                    if (response.isSuccessful){
+//                        val user = response.body()
+//                        user!!.access_token.let { Log.e("access_token",it) }
+//                        user!!.client_id?.let { Log.e("id", it) }
+//                        user!!.code?.let { Log.e("code", it) }
+//                        user!!.client_secret.let { Log.e("client_sec",it) }
+//                        user!!.grant_type.let { Log.d("grant",it) }
+//                        user!!.redirect_uri.let{ Log.d("uri",it)}
+//                    }
+//                }
+//
+//                override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+//                    Log.d(ContentValues.TAG, "onFailure: ${t.message.toString()}")
+//                }
+//
+//            })
+//    }
 
     private fun randomCode():String{
         val alphabet= "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
