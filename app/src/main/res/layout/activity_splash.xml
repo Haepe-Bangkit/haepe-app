@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
         android:layout_marginTop="192dp"
         android:src="@drawable/logocemara"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,6 +21,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:elevation="40dp"
+        android:fontFamily="@font/alataregular"
         android:text="@string/let_s_start"
         android:textColor="@color/light_blue_"
         android:textSize="20sp"

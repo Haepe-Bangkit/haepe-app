@@ -101,7 +101,8 @@
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    tools:text="Fam Name" />
+                    tools:text="Fam Name"
+                    android:fontFamily="@font/alataregular"/>
 
             </RelativeLayout>
 
@@ -141,7 +142,8 @@
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    tools:text="Fam Name" />
+                    tools:text="Token"
+                    android:fontFamily="@font/alataregular"/>
 
             </RelativeLayout>
 
@@ -155,8 +157,8 @@
 
                 <ImageView
                     android:id="@+id/iv_logo"
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
                     android:padding="10dp"
                     android:src="@drawable/members" />
 
@@ -180,7 +182,8 @@
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    tools:text="Members" />
+                    tools:text="Members"
+                    android:fontFamily="@font/alataregular"/>
 
             </RelativeLayout>
 
