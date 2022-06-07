@@ -38,84 +38,72 @@
         android:id="@+id/tv_task1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="24dp"
         android:text="@string/title"
         android:textColor="#000000"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/back_task" />
+        app:layout_constraintStart_toStartOf="@+id/etTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tv_task" />
 
     <TextView
         android:id="@+id/tv_task2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:text="@string/date"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/etTitle"
         app:layout_constraintTop_toBottomOf="@+id/etTitle" />
 
     <TextView
         android:id="@+id/tv_task3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:text="@string/start_time"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etDate" />
+        app:layout_constraintStart_toStartOf="@+id/et_Date2"
+        app:layout_constraintTop_toBottomOf="@+id/et_Date2" />
 
     <TextView
         android:id="@+id/tv_task4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:text="@string/end_time"
         android:textColor="#000000"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etStart" />
+        app:layout_constraintStart_toStartOf="@+id/et_Start2"
+        app:layout_constraintTop_toBottomOf="@+id/et_Start2" />
 
     <TextView
         android:id="@+id/tv_task5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:text="@string/who_will_do"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEnd" />
+        app:layout_constraintStart_toStartOf="@+id/et_Time2"
+        app:layout_constraintTop_toBottomOf="@+id/et_Time2" />
 
     <TextView
         android:id="@+id/tv_task6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
         android:layout_marginTop="48dp"
         android:text="@string/description"
         android:textColor="#000000"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/etWho"
         app:layout_constraintTop_toBottomOf="@+id/etWho" />
 
     <EditText
@@ -125,39 +113,10 @@
         android:layout_marginTop="4dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/tv_task1"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_task1" />
-
-    <EditText
-        android:id="@+id/etDate"
-        android:layout_width="340dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:ems="10"
-        android:inputType="date"
-        app:layout_constraintStart_toStartOf="@+id/tv_task2"
-        app:layout_constraintTop_toBottomOf="@+id/tv_task2" />
-
-    <EditText
-        android:id="@+id/etStart"
-        android:layout_width="340dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:ems="10"
-        android:inputType="time"
-        app:layout_constraintStart_toStartOf="@+id/tv_task3"
-        app:layout_constraintTop_toBottomOf="@+id/tv_task3" />
-
-    <EditText
-        android:id="@+id/etEnd"
-        android:layout_width="340dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:ems="10"
-        android:inputType="time"
-        app:layout_constraintStart_toStartOf="@+id/tv_task4"
-        app:layout_constraintTop_toBottomOf="@+id/tv_task4" />
 
     <EditText
         android:id="@+id/etWho"
@@ -188,10 +147,94 @@
         android:text="@string/btn_create_new_task"
         android:textColor="@color/black"
         android:textStyle="bold"
-        app:cornerRadius="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etDes" />
+
+    <TextView
+        android:id="@+id/et_Date"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/tv_task2"
+        app:layout_constraintTop_toBottomOf="@+id/tv_task2" />
+
+    <TextView
+        android:id="@+id/et_Start"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/tv_task3"
+        app:layout_constraintTop_toBottomOf="@+id/tv_task3" />
+
+    <TextView
+        android:id="@+id/et_Time"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/tv_task4"
+        app:layout_constraintTop_toBottomOf="@+id/tv_task4" />
+
+    <TextView
+        android:id="@+id/et_Date2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="_____________________________________________________________________"
+        android:textColor="#000000"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="@+id/et_Date"
+        app:layout_constraintStart_toStartOf="@+id/tv_task2"
+        app:layout_constraintTop_toBottomOf="@+id/et_Date" />
+
+    <TextView
+        android:id="@+id/et_Start2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="_________________________"
+        android:textColor="#000000"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="@+id/et_Start"
+        app:layout_constraintStart_toStartOf="@+id/tv_task3"
+        app:layout_constraintTop_toBottomOf="@+id/et_Start" />
+
+    <TextView
+        android:id="@+id/et_Time2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="_________________________"
+        android:textColor="#000000"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="@+id/et_Time"
+        app:layout_constraintStart_toStartOf="@+id/et_Time"
+        app:layout_constraintTop_toBottomOf="@+id/et_Time" />
+
+    <ImageButton
+        android:id="@+id/startTimeButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:backgroundTint="#00FFFFFF"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="@+id/et_Start2"
+        app:layout_constraintStart_toEndOf="@+id/et_Start"
+        app:layout_constraintTop_toTopOf="@+id/et_Start"
+        app:srcCompat="@drawable/clock" />
+
+    <ImageButton
+        android:id="@+id/EndTimeButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:backgroundTint="#00FFFFFF"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="@+id/et_Time2"
+        app:layout_constraintStart_toEndOf="@+id/et_Time"
+        app:layout_constraintTop_toTopOf="@+id/et_Time"
+        app:srcCompat="@drawable/clock" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
