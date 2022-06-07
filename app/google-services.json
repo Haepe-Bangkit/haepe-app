@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "339240129870",
+    "firebase_url": "https://cemaraapps-default-rtdb.firebaseio.com",
+    "project_id": "cemaraapps",
+    "storage_bucket": "cemaraapps.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:339240129870:android:26ade3d8b9354eafd3fa1f",
+        "android_client_info": {
+          "package_name": "com.example.cemaraapps"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "339240129870-9ahhkfftd2ej8e6ijsgfg1lm4npthu6i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cemaraapps",
+            "certificate_hash": "172af0a87284c311f909edb69e1af929a45a9203"
+          }
+        },
+        {
+          "client_id": "339240129870-q904tq74e2udv0iuqcktv0aua51bbomk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQbBlX31HZjpYr_wCpHbD-NL0VwF-WPug"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "339240129870-fkefjuqt2uhbb3dj3j7ig9aaodeodj8g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,326 @@
+{
+	"info": {
+		"_postman_id": "3e288f31-8f46-4d7c-a973-abd3375605f4",
+		"name": "Cemara",
+		"description": "# Cemara API Documentation\n\nRequired session cookie.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3661358"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idToken\": \"{{idToken}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{LOCAL_HOST}}/auth/login",
+							"host": [
+								"{{LOCAL_HOST}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						},
+						"description": "Authentication login for grant access to the secured API."
+					},
+					"response": [
+						{
+							"name": "Login failed: Invalid ID Token / ID Token had expired",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-Auth-Token",
+										"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6Ijc0ODNhMDg4ZDRmZmMwMDYwOWYwZTIyZjNjMjJkYTVmZTM5MDZjY2MiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiIzMzkyNDAxMjk4NzAtZmtlZmp1cXQydWhiYjNkajNqN2lnOWFhb2Rlb2RqOGcuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiIzMzkyNDAxMjk4NzAtZmtlZmp1cXQydWhiYjNkajNqN2lnOWFhb2Rlb2RqOGcuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTY2NjE0NDkzODg5NTcxMzI2MTQiLCJlbWFpbCI6InJpemtpLnBlenpla0BnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYXRfaGFzaCI6Ik5BZUdKZ3hXZldQeGxnYlJ1X2tGYVEiLCJuYW1lIjoiUml6a2kgUHJhdGFtYSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHaDhsc0ZXcUppeURzSVRfb2J6MnVpUTZSYkhvd3J6QnJEME8zOHFSdz1zOTYtYyIsImdpdmVuX25hbWUiOiJSaXpraSIsImZhbWlseV9uYW1lIjoiUHJhdGFtYSIsImxvY2FsZSI6ImVuLUdCIiwiaWF0IjoxNjU0NDI3MDU2LCJleHAiOjE2NTQ0MzA2NTZ9.p2g8GYRimiIK95lk0LXcXoScAUo0YU1eBSC9q3Ofw4-PjTaQlhPtV6sSyKBYCvSgnwJXEGnheqlXMCGaSk62kjB_n6d2dwpirBN2M2zlgKcnKpoKZAt2l411uqdKl66Hz1vuZl3js-np1Q21J9tCD7vRU1hFHrEDL12umovJM4JAk_2lFIhwAjphm3p1dWoLSLFR15jGAwPjX2rAYU4u8Tb4v1sZlP60DEkXIIvrj1DW29R1jc87yI0v9qz18J4zfgOpkJiNYgc3CQhI3eQiXXDaEOW7f085e_IZ14v5Om089sIUmbzntSqutbyK2fz59lh6WG5NUDLyykq5a-wb3Q",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idToken\": \"{{idToken}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{LOCAL_HOST}}/auth/login",
+									"host": [
+										"{{LOCAL_HOST}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "content-length",
+									"value": "121"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 05 Jun 2022 16:37:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 500,\n    \"status\": \"fail\",\n    \"message\": \"Token validation error: ID Token tidak sesuai / ID token sudah kadaluarsa.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{LOCAL_HOST}}/auth/logout",
+							"host": [
+								"{{LOCAL_HOST}}"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "### Contain all about API authentication."
+		},
+		{
+			"name": "Family",
+			"item": [
+				{
+					"name": "Family Insert",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"My Family\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{LOCAL_HOST}}/family",
+							"host": [
+								"{{LOCAL_HOST}}"
+							],
+							"path": [
+								"family"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Family Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{LOCAL_HOST}}/family",
+							"host": [
+								"{{LOCAL_HOST}}"
+							],
+							"path": [
+								"family"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Family Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"My family\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{LOCAL_HOST}}/family/:id",
+							"host": [
+								"{{LOCAL_HOST}}"
+							],
+							"path": [
+								"family",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "qF9RJtG9lKx_tGhV"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Family Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\": \"XASLE1RQ\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{LOCAL_HOST}}/family/token",
+							"host": [
+								"{{LOCAL_HOST}}"
+							],
+							"path": [
+								"family",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Family Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{LOCAL_HOST}}/family/:id",
+							"host": [
+								"{{LOCAL_HOST}}"
+							],
+							"path": [
+								"family",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "c-kWKwjve_pFceKJ"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "LOCAL_HOST",
+			"value": "http://localhost:3000",
+			"type": "string"
+		},
+		{
+			"key": "SERVER_HOST",
+			"value": "https://cemaraapps.uc.r.appspot.com",
+			"type": "string"
+		},
+		{
+			"key": "GOOGLE_CLIENT_ID",
+			"value": "728807852869-qcjv3s5qptuav3d02otuu88dtjsf83t5.apps.googleusercontent.com",
+			"type": "string"
+		},
+		{
+			"key": "GOOGLE_CLIENT_SECRET",
+			"value": "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",
+			"type": "string"
+		},
+		{
+			"key": "AUTH_URL",
+			"value": "https://accounts.google.com/o/oauth2/auth",
+			"type": "string"
+		},
+		{
+			"key": "TOKEN_URL",
+			"value": "https://oauth2.googleapis.com/token",
+			"type": "string"
+		},
+		{
+			"key": "SCOPE",
+			"value": "https://www.googleapis.com/auth/userinfo.email, https://www.googleapis.com/auth/userinfo.profile, https://www.googleapis.com/auth/calendar"
+		}
+	]
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="gold">#E6BF3E</color>
+    <color name="trans">#00000000</color>
+    <color name="oren">#F65F28</color>
+    <color name="grey">#504E4D</color>
+
+    <!--color untuk gradient tansition-->
+    <color name="light_blue_">#0376D9</color>
+    <color name="deep_blue">#035397</color>
+    <color name="blue_500">#2196f3</color>
+    <color name="cyan_500">#00bcd4</color>
+</resources>

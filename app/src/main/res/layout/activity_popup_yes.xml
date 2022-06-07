@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/popup3"
+    android:gravity="bottom|center">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/close"
+            android:contentDescription="@string/img_close"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="360dp"
+            android:background="@drawable/bg_popup"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_havefam"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="82dp"
+                android:gravity="center_horizontal"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:text="@string/join_the_family"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="8dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_yes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="44dp"
+                    android:layout_marginTop="22dp"
+                    android:text="@string/input_token"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+
+                <EditText
+                    android:id="@+id/et_join"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    android:layout_marginStart="44dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="44dp"
+                    android:background="@drawable/bg_input"
+                    android:ems="10"
+                    android:inputType="text" />
+
+                <Button
+                    android:id="@+id/btn_join"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="44dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="44dp"
+                    android:backgroundTint="@color/gold"
+                    android:text="@string/join"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:cornerRadius="12dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</RelativeLayout>
