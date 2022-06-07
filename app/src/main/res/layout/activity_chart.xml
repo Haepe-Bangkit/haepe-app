@@ -15,14 +15,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/Pie_Chart"
-        app:srcCompat="@drawable/white_rounded_shape" />
+        app:srcCompat="@drawable/white_rounded_shape"
+        android:contentDescription="@string/background_chart" />
 
     <TextView
         android:id="@+id/tv_Chart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Chart"
+        android:text="@string/chart"
         android:textColor="#000000"
         android:textSize="22sp"
         android:textStyle="bold"

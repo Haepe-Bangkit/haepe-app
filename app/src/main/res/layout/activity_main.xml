@@ -41,7 +41,7 @@
         android:shadowDx="5"
         android:shadowDy="6"
         android:shadowRadius="10"
-        android:text="Halo,"
+        android:text="@string/halo"
         android:textColor="@color/black"
         android:textSize="28sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -74,7 +74,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="2dp"
-        android:text="!"
+        android:text="@string/user"
         android:textColor="@color/black"
         android:textSize="28sp"
         android:textStyle="bold"
@@ -120,9 +120,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="5dp"
-                    android:text="Calendar"
+                    android:text="@string/calendar"
                     android:textColor="#000000"
-                    android:textSize="12dp"
+                    android:textSize="12sp"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -146,9 +146,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="5dp"
-                    android:text="Member"
+                    android:text="@string/member_dasboard"
                     android:textColor="#000000"
-                    android:textSize="12dp"
+                    android:textSize="12sp"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -181,9 +181,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="5dp"
-                    android:text="Chart"
+                    android:text="@string/chart_dashboard"
                     android:textColor="#000000"
-                    android:textSize="12dp"
+                    android:textSize="12sp"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -207,9 +207,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="5dp"
-                    android:text="Detail"
+                    android:text="@string/detail_dashboard"
                     android:textColor="#000000"
-                    android:textSize="12dp"
+                    android:textSize="12sp"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -223,7 +223,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:drawableLeft="@drawable/logout"
-        android:text="LogOut"
+        android:text="@string/logout"
         android:textAllCaps="false"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"

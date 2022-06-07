@@ -31,14 +31,14 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="82dp"
+                android:fontFamily="@font/alataregular"
                 android:gravity="center_horizontal"
                 android:paddingStart="12dp"
                 android:paddingEnd="12dp"
                 android:text="@string/create_family"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                android:textStyle="bold"
-                android:fontFamily="@font/alataregular"/>
+                android:textStyle="bold" />
 
 
             <LinearLayout

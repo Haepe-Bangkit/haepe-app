@@ -35,7 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
-        android:text="My Role"
+        android:text="@string/role_user"
         android:textColor="#000000"
         android:textSize="20sp"
         android:textStyle="normal"
@@ -49,7 +49,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Minat"
+        android:text="@string/minat"
         android:textColor="#000000"
         android:textSize="20sp"
         android:textStyle="normal"
@@ -63,7 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Skill"
+        android:text="@string/keahlian"
         android:textColor="#000000"
         android:textSize="20sp"
         android:textStyle="normal"
@@ -77,7 +77,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Age"
+        android:text="@string/usia"
         android:textColor="#000000"
         android:textSize="20sp"
         android:textStyle="normal"
@@ -120,7 +120,7 @@
                     android:buttonTint="#000000"
                     android:checked="false"
                     android:paddingRight="10dp"
-                    android:text="Father" />
+                    android:text="@string/role_ayah" />
 
                 <RadioButton
                     android:id="@+id/Mother"
@@ -131,7 +131,7 @@
                     android:background="@drawable/bg_btn_"
                     android:buttonTint="#000000"
                     android:paddingRight="10dp"
-                    android:text="Mother" />
+                    android:text="@string/role_ibu" />
 
                 <RadioButton
                     android:id="@+id/Children"
@@ -142,7 +142,7 @@
                     android:background="@drawable/bg_btn_"
                     android:buttonTint="#000000"
                     android:paddingRight="10dp"
-                    android:text="Children" />
+                    android:text="@string/role_anak" />
             </RadioGroup>
         </LinearLayout>
     </HorizontalScrollView>
@@ -173,7 +173,7 @@
                 android:buttonTint="#000000"
                 android:checked="false"
                 android:paddingRight="10dp"
-                android:text="Makanan" />
+                android:text="@string/makanan" />
 
             <CheckBox
                 android:id="@+id/Olahraga"
@@ -184,7 +184,7 @@
                 android:background="@drawable/bg_btn_"
                 android:buttonTint="#000000"
                 android:paddingRight="10dp"
-                android:text="Olahraga" />
+                android:text="@string/olahraga" />
 
             <CheckBox
                 android:id="@+id/Alam"
@@ -195,7 +195,7 @@
                 android:background="@drawable/bg_btn_"
                 android:buttonTint="#000000"
                 android:paddingRight="10dp"
-                android:text="Alam" />
+                android:text="@string/alam" />
 
             <CheckBox
                 android:id="@+id/Teknologi"
@@ -206,7 +206,7 @@
                 android:background="@drawable/bg_btn_"
                 android:buttonTint="#000000"
                 android:paddingRight="10dp"
-                android:text="Teknologi" />
+                android:text="@string/teknologi" />
 
             <CheckBox
                 android:id="@+id/Hiburan"
@@ -217,7 +217,7 @@
                 android:background="@drawable/bg_btn_"
                 android:buttonTint="#000000"
                 android:paddingRight="10dp"
-                android:text="Hiburan" />
+                android:text="@string/hiburan" />
 
             <CheckBox
                 android:id="@+id/Edukasi"
@@ -228,7 +228,7 @@
                 android:background="@drawable/bg_btn_"
                 android:buttonTint="#000000"
                 android:paddingRight="10dp"
-                android:text="Edukasi" />
+                android:text="@string/edukasi" />
 
             <CheckBox
                 android:id="@+id/Animasi"
@@ -239,7 +239,7 @@
                 android:background="@drawable/bg_btn_"
                 android:buttonTint="#000000"
                 android:paddingRight="10dp"
-                android:text="Animasi" />
+                android:text="@string/animasi" />
 
             <CheckBox
                 android:id="@+id/Binatang"
@@ -250,7 +250,7 @@
                 android:background="@drawable/bg_btn_"
                 android:buttonTint="#000000"
                 android:paddingRight="10dp"
-                android:text="Binatang" />
+                android:text="@string/binatang" />
 
             <CheckBox
                 android:id="@+id/Keuangan"
@@ -261,7 +261,7 @@
                 android:background="@drawable/bg_btn_"
                 android:buttonTint="#000000"
                 android:paddingRight="10dp"
-                android:text="Keuangan" />
+                android:text="@string/keuangan" />
 
             <CheckBox
                 android:id="@+id/Literatur"
@@ -272,7 +272,7 @@
                 android:background="@drawable/bg_btn_"
                 android:buttonTint="#000000"
                 android:paddingRight="10dp"
-                android:text="Literatur" />
+                android:text="@string/literatur" />
 
             <CheckBox
                 android:id="@+id/Kesehatan"
@@ -283,7 +283,7 @@
                 android:background="@drawable/bg_btn_"
                 android:buttonTint="#000000"
                 android:paddingRight="10dp"
-                android:text="Kesehatan" />
+                android:text="@string/kesehatan" />
         </LinearLayout>
     </HorizontalScrollView>
 
@@ -312,7 +312,7 @@
                 android:background="@drawable/bg_btn_"
                 android:buttonTint="#000000"
                 android:paddingRight="10dp"
-                android:text="Masak" />
+                android:text="@string/masak" />
 
             <CheckBox
                 android:id="@+id/Swakarya"
@@ -323,7 +323,7 @@
                 android:background="@drawable/bg_btn_"
                 android:buttonTint="#000000"
                 android:paddingRight="10dp"
-                android:text="Swakarya" />
+                android:text="@string/swakarya" />
 
             <CheckBox
                 android:id="@+id/Sosialisasi"
@@ -334,7 +334,7 @@
                 android:background="@drawable/bg_btn_"
                 android:buttonTint="#000000"
                 android:paddingRight="10dp"
-                android:text="Sosialisasi" />
+                android:text="@string/sosialisasi" />
 
             <CheckBox
                 android:id="@+id/Manajemen"
@@ -345,7 +345,7 @@
                 android:background="@drawable/bg_btn_"
                 android:buttonTint="#000000"
                 android:paddingRight="10dp"
-                android:text="Manajemen" />
+                android:text="@string/manajemen" />
 
             <CheckBox
                 android:id="@+id/Otomotif"
@@ -356,7 +356,7 @@
                 android:background="@drawable/bg_btn_"
                 android:buttonTint="#000000"
                 android:paddingRight="10dp"
-                android:text="Otomotif" />
+                android:text="@string/otomotif" />
 
             <CheckBox
                 android:id="@+id/Kelistrikan"
@@ -367,7 +367,7 @@
                 android:background="@drawable/bg_btn_"
                 android:buttonTint="#000000"
                 android:paddingRight="10dp"
-                android:text="Kelistrikan" />
+                android:text="@string/kelistrikan" />
 
             <CheckBox
                 android:id="@+id/Berkebun"
@@ -378,7 +378,7 @@
                 android:background="@drawable/bg_btn_"
                 android:buttonTint="#000000"
                 android:paddingRight="10dp"
-                android:text="Berkebun" />
+                android:text="@string/berkebun" />
         </LinearLayout>
     </HorizontalScrollView>
 
@@ -399,7 +399,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="48dp"
         android:backgroundTint="@color/gold"
-        android:text="Confirm"
+        android:text="@string/confirm_role"
         app:cornerRadius="12dp"
         android:textStyle="bold"
         android:textColor="@color/black"
