@@ -21,6 +21,6 @@ interface ApiService {
     @FormUrlEncoded
     @POST("family")
     fun getFamily(
-        @Field("name") name: String
+        @Field("name") name: String,
     ): Call<FamilyResponse>
 }

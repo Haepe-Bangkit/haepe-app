@@ -110,6 +110,75 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"statusCode\": 500,\n    \"status\": \"fail\",\n    \"message\": \"Token validation error: ID Token tidak sesuai / ID token sudah kadaluarsa.\"\n}"
+						},
+						{
+							"name": "Login success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idToken\": \"{{idToken}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{LOCAL_HOST}}/auth/login",
+									"host": [
+										"{{LOCAL_HOST}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "set-cookie",
+									"value": "sid=Fe26.2**d4adbf4fa86ade9b17ae84aa971f7946dba6d4b066b9bcb19f5855cc276b2225*Qlka4SDNF0ujeGXHTKMmbQ*p2MfOa8LPPk71dlhuw6rSJYqyLQW8s5urWJBOrr9M3m_GHDU9f9_SEm_xIVAOK3xxHd1pfva6GYztu2LcmI1klHuGoR1tJr41bPHfdmHQ99CCcfpaU9Y_DBLiP_sXUapQ8vjbFwEupM0GSO9G4K_gr8IWeIBoDxv_2hxh9GxDT6jGLFWg9EoxjbmUDEKCgyWH9KGQbN_xJzS2wxl6W4KOHGgwvTgwUj_xOZkhmRP4qRKB2TjkOHdNZJapKPhoeJXFDgq2QVjYcJtRvY6MWHfY4Z9Qg8z6LOpkaCV-A1R4aqF3VikfGTLtAGsTZwDuLsu3686FgA7ODvV3vVQgMc4jj7uIzvwshpLoqsZHqPswl5Su5jdys1MAqqHiWl83akAi_LpjpK5Qve01nFh4YCPPO7qZKHqTcirwcr5dRfpvgf3emGEIqQOpAl-G3sdEpiCojBTHixYUR99PZcPVfXeCkQewKhouVPc9-V3YxeSqB5yO2tg_HiuCl8p3N2Un-Hlxtzv5Wy5I3W9rf8DoHekCKhZ7yUjuErT36WyDhO2b2v45QzWJKF0rQXmjHIpfKJi34nNHhsIoPTc-rAkuUE6rxZhNpB127scUalNvwwE11rdyeqt99EYssybLY5kS8U7BiqsKbzwFcRX8ZW14P1v4kqq5CvAjRAT5_eLQxyMcPu6JSZxatwLDTOw-jy0wQDfg6uEibQFbE0ySmaTDVk5UcNMXbrrD1ds7hPlvxYzcOJCr-oPn9wx38_dKXI24pn6cAc3YHNxkyyKzlUuOi2Hazbz05C3sIh-5EY9riHlAJHD0oVIvvhmdxWmc5hPHKSy1QKhW---YFiFKkNdtG1wtfPFvfmvivSd8cW3ZzI2RGI_AxOftIw4re_dK7ezLvwrvW04aNWf6sWEzCWzedHRrmSIQDAnqhplLJv69tswLlRp6ezLa_0Eqvm172evLtCy55BDOGRR53kB2HF5yVtCIglocvlQFQzipnx2_OwfpufwoGMdwj6YH7HMboeIQeWw_IHOHeixrYpaFAXgEJOm8eZ-Vb085wEhctP-tJG0K8S0rfUqG9vrWU45ctDT53uqKysb8JVf2PHuH8OzqDq6jsxMdCrinpe_MStPxqVYFgUeZap5mXohbRiE5SAPCbdoSvqI-S5pZO_1R72QRHaI8pyFD8e2PuIdvHMFx_69FNf7a39I9Ru2ezDG0oDXsij_pN7cukvQqxkYarZDa4G62rVe3eQLWPmdj2uuz914frhsZHus_8gGwF5SzM3j_z6yC7xfE5388A-hZ8wNgueHL1steuYrDSPpm_jdruziqMWOHR8lER0XBCASFpb3p3__bC2yP9eHoXoUjfq58jkp323ChKipLFvWXh0s30PvhB4Pe1C9UmB8xJNmt5PJXfwneACAN-GVQtNVb4553-79N8OBiKOizYGPjnldUPVmji2wGAl4KVW52HufxeltRuJafBs1io84V5jH1kxaUUUDl8YgaRBGQ_NWZ-qZdwqn48oMtCpyPBEiTwBlPJYZEbvXsLX7q4Q_zPV-jh91BA0QbOWxcgkLNdg2Ht4YYykbPRr20J8KkVKs2Ydc5WOboYqJHnt5vMTu4O7UgX--B-JSQg**454e2d0b121f866109ffa2d282c8ad77377d2de6d5c0b1439404c7ec58a2a7e0*DFLcJsB8TggpR0NqvMn4T0_dBOdnTb_P6D5tEjvzHAI; HttpOnly; SameSite=Strict; Path=/"
+								},
+								{
+									"key": "vary",
+									"value": "accept-encoding"
+								},
+								{
+									"key": "content-encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 07 Jun 2022 09:04:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"status\": \"success\",\n    \"message\": \"Login berhasil.\",\n    \"data\": {\n        \"idToken\": \"eyJhbGciOiJSUzI1NiIsImtpZCI6Ijc0ODNhMDg4ZDRmZmMwMDYwOWYwZTIyZjNjMjJkYTVmZTM5MDZjY2MiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiIzMzkyNDAxMjk4NzAtZmtlZmp1cXQydWhiYjNkajNqN2lnOWFhb2Rlb2RqOGcuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiIzMzkyNDAxMjk4NzAtZmtlZmp1cXQydWhiYjNkajNqN2lnOWFhb2Rlb2RqOGcuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTY2NjE0NDkzODg5NTcxMzI2MTQiLCJlbWFpbCI6InJpemtpLnBlenpla0BnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYXRfaGFzaCI6IlluTjlLdjgtWXNDelkzVmd0TEZWdVEiLCJuYW1lIjoiUml6a2kgUHJhdGFtYSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHaDhsc0ZXcUppeURzSVRfb2J6MnVpUTZSYkhvd3J6QnJEME8zOHFSdz1zOTYtYyIsImdpdmVuX25hbWUiOiJSaXpraSIsImZhbWlseV9uYW1lIjoiUHJhdGFtYSIsImxvY2FsZSI6ImVuLUdCIiwiaWF0IjoxNjU0NTkxNzAyLCJleHAiOjE2NTQ1OTUzMDJ9.H8bNJFZLTMyMj0tkFBs9itSgKD-6EVod0VooWZHqUXokvf59XNZevc6mkwhwMg4axQZNRdPU2IhaglL7NP2pNzMwYREYzjvKPi9NozdSvs0zAZTcyYedFtf-Rnr8vJeEZLFXOgInj0f19JabwZhnyrOXnQgaGFj1cJb_0KfDpDbTSMJRzD2JZbt_gkynMzcN5gGP2veQ9SH5USzVj8ec4_Ari_Kbazu2mj56cm0yCvhlc_1NlmTwySnUWqwvRxuJp5vRQslg6QZ5Bx-3pW-ESeYRIrLfvw_ycNjq96fDTLpw4k5TRjbwnu8A1KPBaBAOVkHQSXhsccsWw1WD05gj3Q\",\n        \"userId\": \"116661449388957132614\"\n    }\n}"
 						}
 					]
 				},
@@ -206,7 +275,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "qF9RJtG9lKx_tGhV"
+									"value": "IdUEdns11kJczJuV"
 								}
 							]
 						}
@@ -214,13 +283,13 @@
 					"response": []
 				},
 				{
-					"name": "Family Token",
+					"name": "Family Join",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"token\": \"XASLE1RQ\"\r\n}",
+							"raw": "{\r\n    \"id\": \"IdUEdns11kJczJuV\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -228,13 +297,72 @@
 							}
 						},
 						"url": {
-							"raw": "{{LOCAL_HOST}}/family/token",
+							"raw": "{{LOCAL_HOST}}/family/join",
 							"host": [
 								"{{LOCAL_HOST}}"
 							],
 							"path": [
 								"family",
-								"token"
+								"join"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Family Leave",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{LOCAL_HOST}}/family/:id/leave",
+							"host": [
+								"{{LOCAL_HOST}}"
+							],
+							"path": [
+								"family",
+								":id",
+								"leave"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "IdUEdns11kJczJuV"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Family Role Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": \"116661449388957132614\",\r\n    \"role\": \"owner\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{LOCAL_HOST}}/family/:id/role",
+							"host": [
+								"{{LOCAL_HOST}}"
+							],
+							"path": [
+								"family",
+								":id",
+								"role"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "IdUEdns11kJczJuV"
+								}
 							]
 						}
 					},
@@ -257,7 +385,79 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "c-kWKwjve_pFceKJ"
+									"value": "IdUEdns11kJczJuV"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Event",
+			"item": [
+				{
+					"name": "Event Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{LOCAL_HOST}}/event",
+							"host": [
+								"{{LOCAL_HOST}}"
+							],
+							"path": [
+								"event"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Event Insert",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"start\": \"2022-06-06T20:00:00+07:00\",\r\n    \"end\": \"2022-06-06T21:00:00+07:00\",\r\n    \"summary\": \"Memasak\",\r\n    \"description\": \"Masak nasi\",\r\n    \"userId\": \"116661449388957132614\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{LOCAL_HOST}}/event",
+							"host": [
+								"{{LOCAL_HOST}}"
+							],
+							"path": [
+								"event"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Event Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{LOCAL_HOST}}/event/:id",
+							"host": [
+								"{{LOCAL_HOST}}"
+							],
+							"path": [
+								"event",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "hD_UBz7cHz4P4KWD"
 								}
 							]
 						}
