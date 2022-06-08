@@ -26,14 +26,6 @@ data class LoginResponse(
     )
 
 data class FamilyResponse(
-    @field:SerializedName("statusCode")
-    val statusCode: String,
-    @field:SerializedName("error")
-    val error: String,
-    @field:SerializedName("message")
-    val message: String,
-    @field:SerializedName("name")
-    val name: String,
-    @field:SerializedName("id")
-    val id: String
+    @field:SerializedName("familyId")
+    val familyId: String
 )

@@ -98,11 +98,11 @@
                     android:layout_marginStart="15dp"
                     android:layout_marginTop="40dp"
                     android:layout_toEndOf="@id/fam"
+                    android:fontFamily="@font/alataregular"
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    tools:text="Fam Name"
-                    android:fontFamily="@font/alataregular"/>
+                    tools:text="Fam Name" />
 
             </RelativeLayout>
 

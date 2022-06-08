@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatDialog
 import androidx.appcompat.widget.AppCompatButton
 import com.example.cemaraapps.Api.ApiConfig
 import com.example.cemaraapps.databinding.ActivityQfamilyBinding
+import com.example.cemaraapps.model.familyRequest
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -24,6 +25,7 @@ class QfamilyActivity : AppCompatActivity() {
     private lateinit var PopUpYesDialog: Dialog
     private lateinit var PopUpNoDialog: Dialog
     private lateinit var BtnInput: AppCompatButton
+    private lateinit var TextInput : EditText
 //    private lateinit var et_create: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,9 +56,7 @@ class QfamilyActivity : AppCompatActivity() {
         }
 
     }
-    private fun createFam(){
 
-    }
 
     private fun PopUpYes(){
         PopUpYesDialog.show()
@@ -69,16 +69,39 @@ class QfamilyActivity : AppCompatActivity() {
     private fun PopUpNo(){
         PopUpNoDialog.show()
         BtnInput = PopUpNoDialog.findViewById(R.id.btn_create)
-
-        val NomorToken = randomCode()
+        TextInput = PopUpNoDialog.findViewById(R.id.et_create)
+        setCreateFam(TextInput.toString())
         BtnInput.setOnClickListener{
             val intent = Intent(this,MainActivity::class.java)
-            intent.putExtra(EXTRA_CODE,NomorToken)
             startActivity(intent)
+//            postCreateFamily("")
         }
+
     }
+//
+//    private fun postCreateFamily(name: String) {
+//        ApiConfig.getApiService().createFamily(name)
+//            .enqueue(object: Callback<FamilyResponse> {
+//                override fun onResponse(
+//                    call: Call<FamilyResponse>,
+//                    response: Response<FamilyResponse>
+//                ) {
+//                    if (response.isSuccessful){
+//                        val user = response.body()
+//                        user!!.familyId.let { Log.e("name",it) }
+//                    }
+//                }
+//
+//                override fun onFailure(call: Call<FamilyResponse>, t: Throwable) {
+//                    Log.d(ContentValues.TAG, "onFailure: ${t.message.toString()}")
+//
+//                }
+//
+//            })
+//    }
+
     private fun setCreateFam(name: String){
-        ApiConfig.getApiService().createFamily("Nasution Family")
+        ApiConfig.getApiService().createFamily(name)
             .enqueue(object: Callback<FamilyResponse> {
                 override fun onResponse(
                     call: Call<FamilyResponse>,
@@ -86,28 +109,16 @@ class QfamilyActivity : AppCompatActivity() {
                 ) {
                     if (response.isSuccessful){
                         val user = response.body()
-                        user!!.name.let { Log.e("name",it) }
+                        user!!.familyId.let { Log.e("name",it) }
                     }
                 }
 
                 override fun onFailure(call: Call<FamilyResponse>, t: Throwable) {
-//                    Log.d(ContentValues.TAG, "onFailure: ${t.message.toString()}")
+                    Log.d(ContentValues.TAG, "onFailure: ${t.message.toString()}")
 
                 }
 
             })
-    }
-
-
-    private fun randomCode():String{
-        val alphabet= "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        val charArray=CharArray(8)
-        val random = Random()
-        for(i in 0..7){
-            val randomlnt= random.nextInt(alphabet.length)
-            charArray[i]=alphabet[randomlnt]
-        }
-        return charArray.joinToString("")
     }
 
     companion object{
