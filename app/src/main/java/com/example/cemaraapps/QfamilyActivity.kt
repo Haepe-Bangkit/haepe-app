@@ -65,10 +65,8 @@ class QfamilyActivity : AppCompatActivity() {
         PopUpNoDialog.show()
         BtnInput = PopUpNoDialog.findViewById(R.id.btn_create)
 
-        val NomorToken = randomCode()
         BtnInput.setOnClickListener{
             val intent = Intent(this,MainActivity::class.java)
-            intent.putExtra(EXTRA_CODE,NomorToken)
             startActivity(intent)
         }
     }
@@ -97,19 +95,7 @@ class QfamilyActivity : AppCompatActivity() {
 //            })
 //    }
 
-    private fun randomCode():String{
-        val alphabet= "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        val charArray=CharArray(8)
-        val random = Random()
-        for(i in 0..7){
-            val randomlnt= random.nextInt(alphabet.length)
-            charArray[i]=alphabet[randomlnt]
-        }
-        return charArray.joinToString("")
-    }
-
     companion object{
-        const val EXTRA_CODE = "EXTRA_CODE"
         const val EXTRA_FAM = "EXTRA_FAM"
     }
 }

@@ -10,9 +10,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 
 
 class MainActivity : AppCompatActivity() {
-    companion object{
-        const val EXTRA_CODE2 = "EXTRA_CODE2"
-    }
 
     private lateinit var binding: ActivityMainBinding
 
@@ -20,7 +17,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val tokenFam = intent.getStringExtra(QfamilyActivity.EXTRA_CODE)
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestEmail()
             .build()
@@ -35,7 +31,6 @@ class MainActivity : AppCompatActivity() {
             }
             ibDetail.setOnClickListener{
                 val intent = Intent(this@MainActivity, DetailActivity::class.java)
-                intent.putExtra(EXTRA_CODE2, tokenFam)
                 startActivity(intent)
 
             }

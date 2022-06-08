@@ -18,19 +18,15 @@ import androidx.viewpager.widget.ViewPager
 import com.example.cemaraapps.databinding.ActivityIntroBinding
 
 class IntroActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityIntroBinding
-    private lateinit var btn_got_it: Button
-    private val title_array = arrayOf(
-        "Fitur Kalender", "Member's info",
-        "Buat atau gabung family", "Grafik yang keren"
-    )
-    lateinit var preference : SharedPreferences
-    val pref_show_intro = "intro"
     private val description_array = arrayOf(
         "Dengan fitur ini, anda menambahkan tugas harian bersama keluarga",
         "Anda juga perlu mengisi data keahlian anda",
         "Anda dapat mengetahui detail family grup anda, anda dapat membuat family baru atau pun join menggunakan kode Token",
         "Anda dapat melihat grafik interaktif sebagai bentuk pembagian tugas keluarga anda"
+    )
+    private val title_array = arrayOf(
+        "Fitur Kalender", "Member's info",
+        "Buat atau gabung family", "Grafik yang keren"
     )
     private val about_images_array = intArrayOf(
         R.drawable.calender_intro, R.drawable.members_intro,
@@ -41,46 +37,47 @@ class IntroActivity : AppCompatActivity() {
         R.color.oren, R.color.deep_blue
     )
 
+
+    private lateinit var binding: ActivityIntroBinding
+    private lateinit var btn_got_it: Button
+    lateinit var preference : SharedPreferences
+    val pref_show_intro = "Intro"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-       val extra_name = intent.getStringExtra(LoginActivity.EXTRA_NAME)
-
+        binding = ActivityIntroBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        val extra_name = intent.getStringExtra(LoginActivity.EXTRA_NAME)
+        preference = getSharedPreferences("Intro", Context.MODE_PRIVATE)
         if(!preference.getBoolean(pref_show_intro,true)){
             val intent = Intent(this@IntroActivity, MainActivity::class.java)
             intent.putExtra(EXTRA_NAME2,extra_name)
             startActivity(intent)
+            finish()
         }
-        binding = ActivityIntroBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        preference = getSharedPreferences("Intro Slider", Context.MODE_PRIVATE)
-        initComponent()
 
-    }
-
-    private fun initComponent() {
-        val extra_name = intent.getStringExtra(LoginActivity.EXTRA_NAME)
+        preference.edit().putBoolean(pref_show_intro,false)
         val viewPager = binding.viewPager
+        btn_got_it = binding.btnGotIt
         bottomProgressDots(0)
         val myViewPagerAdapter = MyViewPagerAdapter()
         viewPager.adapter = myViewPagerAdapter
         viewPager.addOnPageChangeListener(viewPagerPageChangeListener)
-        val editor = preference.edit()
         binding.btnGotIt.setVisibility(View.GONE)
         binding.btnGotIt.setOnClickListener{
             val intent = Intent(this@IntroActivity, MainActivity::class.java)
             intent.putExtra(EXTRA_NAME2,extra_name)
             startActivity(intent)
             finish()
-            editor.putBoolean(pref_show_intro,false)
         }
         binding.btnSkip.setOnClickListener {
             val intent = Intent(this@IntroActivity, MainActivity::class.java)
             intent.putExtra(EXTRA_NAME2,extra_name)
             startActivity(intent)
             finish()
-            editor.putBoolean(pref_show_intro,false)
 
         }
+
     }
 
     private fun bottomProgressDots(index: Int) {
