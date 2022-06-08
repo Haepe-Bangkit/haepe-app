@@ -19,10 +19,11 @@ interface ApiService {
         @Field("grant_type") grant_type: String
     ): Call<LoginResponse>
 
+    //Family insert
     @FormUrlEncoded
     @POST("family")
     fun createFamily(
-        @Field("name") name: String
+        @Field("familyId") familyId: String
     ): Call<FamilyResponse>
 
     @FormUrlEncoded

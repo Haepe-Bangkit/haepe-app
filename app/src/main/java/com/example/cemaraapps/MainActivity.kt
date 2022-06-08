@@ -47,20 +47,20 @@ class MainActivity : AppCompatActivity() {
                 startActivity(Intent(this@MainActivity, ChartActivity::class.java))
             }
 
-            var nama = intent.getStringExtra(IntroActivity.EXTRA_NAME2).toString()
-            nama+="  "
-            var index = 0
-            var index2 = 0
-            for(huruf in nama){
-                index+=1
-                if(huruf==' '){
-                    index2+=1
-                    if(index2==2){
-                        tvName.text = nama.substring(0,index-1)
-                        return
-                    }
-                }
-            }
+//            var nama = intent.getStringExtra(IntroActivity.EXTRA_NAME2).toString()
+//            nama+="  "
+//            var index = 0
+//            var index2 = 0
+//            for(huruf in nama){
+//                index+=1
+//                if(huruf==' '){
+//                    index2+=1
+//                    if(index2==2){
+//                        tvName.text = nama.substring(0,index-1)
+//                        return
+//                    }
+//                }
+//            }
         }
 
     }

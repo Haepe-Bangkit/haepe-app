@@ -10,30 +10,21 @@ data class LoginResponse(
 //    val error: String,
 //    @field:SerializedName("message")
 //    val message: String
-    @field:SerializedName("code")
-    val code: String,
-    @field:SerializedName("client_id")
-    val client_id: String,
-    @field:SerializedName("client_secret")
-    val client_secret: String,
-    @field:SerializedName("redirect_uri")
-    val redirect_uri: String,
-    @field:SerializedName("client_secret")
-    val grant_type: String,
-    @field:SerializedName("access_token")
-    val access_token: String
-
+    @field:SerializedName("idToken")
+    val idToken: String,
+    @field:SerializedName("userId")
+    val userId: String
     )
 
 data class FamilyResponse(
-    @field:SerializedName("statusCode")
-    val statusCode: String,
-    @field:SerializedName("error")
-    val error: String,
-    @field:SerializedName("message")
-    val message: String,
-    @field:SerializedName("name")
-    val name: String,
-    @field:SerializedName("id")
-    val id: String
+//    @field:SerializedName("statusCode")
+//    val statusCode: String,
+//    @field:SerializedName("error")
+//    val error: String,
+//    @field:SerializedName("message")
+//    val message: String,
+    @field:SerializedName("familyId")
+    val name: String
+//    @field:SerializedName("id")
+//    val id: String
 )
