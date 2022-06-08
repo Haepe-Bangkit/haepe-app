@@ -78,37 +78,37 @@ class LoginActivity : AppCompatActivity() {
             handleSignInResult(task)
         }
     }
-
-    private fun setLogin(
-        code: String,
-        client_id: String,
-        client_secret: String,
-        grant_type: String,
-        redirect_uri: String
-    ) {
-        ApiConfig.getApiService().getLogin(code, client_id, client_secret, grant_type, redirect_uri)
-            .enqueue(object : Callback<LoginResponse> {
-                override fun onResponse(
-                    call: Call<LoginResponse>,
-                    response: Response<LoginResponse>
-                ) {
-                    if (response.isSuccessful) {
-                        val user = response.body()
-                        user!!.access_token.let { Log.e("access_token", it) }
-                        user!!.client_id?.let { Log.e("id", it) }
-                        user!!.code?.let { Log.e("code", it) }
-                        user!!.client_secret.let { Log.e("client_sec", it) }
-                        user!!.grant_type.let { Log.d("grant", it) }
-                        user!!.redirect_uri.let { Log.d("uri", it) }
-                    }
-                }
-
-                override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                    Log.d(ContentValues.TAG, "onFailure: ${t.message.toString()}")
-                }
-
-            })
-    }
+//
+//    private fun setLogin(
+//        code: String,
+//        client_id: String,
+//        client_secret: String,
+//        grant_type: String,
+//        redirect_uri: String
+//    ) {
+//        ApiConfig.getApiService().getLogin(code, client_id, client_secret, grant_type, redirect_uri)
+//            .enqueue(object : Callback<LoginResponse> {
+//                override fun onResponse(
+//                    call: Call<LoginResponse>,
+//                    response: Response<LoginResponse>
+//                ) {
+//                    if (response.isSuccessful) {
+//                        val user = response.body()
+//                        user!!.access_token.let { Log.e("access_token", it) }
+//                        user!!.client_id?.let { Log.e("id", it) }
+//                        user!!.code?.let { Log.e("code", it) }
+//                        user!!.client_secret.let { Log.e("client_sec", it) }
+//                        user!!.grant_type.let { Log.d("grant", it) }
+//                        user!!.redirect_uri.let { Log.d("uri", it) }
+//                    }
+//                }
+//
+//                override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+//                    Log.d(ContentValues.TAG, "onFailure: ${t.message.toString()}")
+//                }
+//
+//            })
+//    }
 
     private fun handleSignInResult(completedTask: Task<GoogleSignInAccount>) {
         try {

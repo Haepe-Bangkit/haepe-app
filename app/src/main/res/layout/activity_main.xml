@@ -108,8 +108,8 @@
 
                 <ImageButton
                     android:id="@+id/ib_calendar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
                     android:background="@drawable/imagebutton_round_gray"
                     android:padding="14dp"
                     app:srcCompat="@drawable/calendar" />
@@ -134,8 +134,8 @@
 
                 <ImageButton
                     android:id="@+id/ib_member"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
                     android:background="@drawable/imagebutton_round_gray"
                     android:padding="14dp"
                     app:srcCompat="@drawable/member" />
@@ -169,8 +169,8 @@
 
                 <ImageButton
                     android:id="@+id/ib_chart"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
                     android:background="@drawable/imagebutton_round_gray"
                     android:padding="7dp"
                     app:srcCompat="@drawable/chart" />
@@ -195,8 +195,8 @@
 
                 <ImageButton
                     android:id="@+id/ib_detail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
                     android:background="@drawable/imagebutton_round_gray"
                     android:padding="7dp"
                     app:srcCompat="@drawable/profile" />
