@@ -12,9 +12,9 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDialog
 import androidx.appcompat.widget.AppCompatButton
+import androidx.core.view.isVisible
 import com.example.cemaraapps.Api.ApiConfig
 import com.example.cemaraapps.databinding.ActivityQfamilyBinding
-import com.example.cemaraapps.model.familyRequest
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -25,14 +25,13 @@ class QfamilyActivity : AppCompatActivity() {
     private lateinit var PopUpYesDialog: Dialog
     private lateinit var PopUpNoDialog: Dialog
     private lateinit var BtnInput: AppCompatButton
-    private lateinit var TextInput : EditText
-//    private lateinit var et_create: EditText
+    private lateinit var TextInput: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityQfamilyBinding.inflate(layoutInflater)
         setContentView(binding.root)
         super.onCreate(savedInstanceState)
-
+        setCreateFam()
         PopUpYesDialog = Dialog(this)
         PopUpYesDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         PopUpYesDialog.setContentView(R.layout.activity_popup_yes)
@@ -57,7 +56,6 @@ class QfamilyActivity : AppCompatActivity() {
 
     }
 
-
     private fun PopUpYes(){
         PopUpYesDialog.show()
 
@@ -67,62 +65,51 @@ class QfamilyActivity : AppCompatActivity() {
         }
     }
     private fun PopUpNo(){
+        setCreateFam()
         PopUpNoDialog.show()
         BtnInput = PopUpNoDialog.findViewById(R.id.btn_create)
         TextInput = PopUpNoDialog.findViewById(R.id.et_create)
-        setCreateFam(TextInput.toString())
+        val textInput = TextInput.text
+
         BtnInput.setOnClickListener{
+
+
+            if(textInput.isNotEmpty()){
+            Toast.makeText(applicationContext, "$textInput", Toast.LENGTH_SHORT).show()
             val intent = Intent(this,MainActivity::class.java)
             startActivity(intent)
-//            postCreateFamily("")
+            }else{
+                Toast.makeText(applicationContext, "input text", Toast.LENGTH_SHORT).show()
+            }
+
         }
 
     }
-//
-//    private fun postCreateFamily(name: String) {
-//        ApiConfig.getApiService().createFamily(name)
-//            .enqueue(object: Callback<FamilyResponse> {
-//                override fun onResponse(
-//                    call: Call<FamilyResponse>,
-//                    response: Response<FamilyResponse>
-//                ) {
-//                    if (response.isSuccessful){
-//                        val user = response.body()
-//                        user!!.familyId.let { Log.e("name",it) }
-//                    }
-//                }
-//
-//                override fun onFailure(call: Call<FamilyResponse>, t: Throwable) {
-//                    Log.d(ContentValues.TAG, "onFailure: ${t.message.toString()}")
-//
-//                }
-//
-//            })
-//    }
 
-    private fun setCreateFam(name: String){
-        ApiConfig.getApiService().createFamily(name)
+    private fun setCreateFam(){
+        ApiConfig.getApiService().createFamily("Ridho Family")
             .enqueue(object: Callback<FamilyResponse> {
                 override fun onResponse(
                     call: Call<FamilyResponse>,
                     response: Response<FamilyResponse>
                 ) {
                     if (response.isSuccessful){
-                        val user = response.body()
-                        user!!.familyId.let { Log.e("name",it) }
+                       // val user = response.body()
+                        Toast.makeText(applicationContext, "irgthhthtnput text", Toast.LENGTH_SHORT).show()
+                       // user!!.familyId.let { Log.d("familyId",it) }
                     }
                 }
 
                 override fun onFailure(call: Call<FamilyResponse>, t: Throwable) {
-                    Log.d(ContentValues.TAG, "onFailure: ${t.message.toString()}")
+                Log.d(ContentValues.TAG, "onFailure: ${t.message.toString()}")
 
                 }
 
             })
     }
 
+
     companion object{
-        const val EXTRA_CODE = "EXTRA_CODE"
         const val EXTRA_FAM = "EXTRA_FAM"
     }
 }

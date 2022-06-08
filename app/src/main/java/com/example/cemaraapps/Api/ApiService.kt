@@ -3,27 +3,20 @@ package com.example.cemaraapps.Api
 import com.example.cemaraapps.FamilyResponse
 import com.example.cemaraapps.LoginResponse
 import retrofit2.Call
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface ApiService {
     @FormUrlEncoded
-    @POST("token")
+    @POST("auth/login")
     fun getLogin(
-        @Field("code") code: String,
-        @Field("client_id") client_id: String,
-        @Field("client_secret") client_secret: String,
-        @Field("redirect_uri") redirect_uri: String,
-        @Field("grant_type") grant_type: String
+        @Field("idToken") idToken: String
     ): Call<LoginResponse>
 
     //Family insert
     @FormUrlEncoded
     @POST("family")
     fun createFamily(
-        @Field("familyId") familyId: String
+        @Field("name") name: String
     ): Call<FamilyResponse>
 
     @FormUrlEncoded
