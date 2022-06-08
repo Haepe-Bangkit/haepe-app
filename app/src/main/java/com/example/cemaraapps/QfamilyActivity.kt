@@ -12,6 +12,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDialog
 import androidx.appcompat.widget.AppCompatButton
+import androidx.core.view.isVisible
 import com.example.cemaraapps.Api.ApiConfig
 import com.example.cemaraapps.databinding.ActivityQfamilyBinding
 import retrofit2.Call
@@ -24,13 +25,13 @@ class QfamilyActivity : AppCompatActivity() {
     private lateinit var PopUpYesDialog: Dialog
     private lateinit var PopUpNoDialog: Dialog
     private lateinit var BtnInput: AppCompatButton
-//    private lateinit var et_create: EditText
+    private lateinit var TextInput: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityQfamilyBinding.inflate(layoutInflater)
         setContentView(binding.root)
         super.onCreate(savedInstanceState)
-
+        setCreateFam()
         PopUpYesDialog = Dialog(this)
         PopUpYesDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         PopUpYesDialog.setContentView(R.layout.activity_popup_yes)
@@ -54,9 +55,6 @@ class QfamilyActivity : AppCompatActivity() {
         }
 
     }
-    private fun createFam(){
-
-    }
 
     private fun PopUpYes(){
         PopUpYesDialog.show()
@@ -67,29 +65,43 @@ class QfamilyActivity : AppCompatActivity() {
         }
     }
     private fun PopUpNo(){
+        setCreateFam()
         PopUpNoDialog.show()
         BtnInput = PopUpNoDialog.findViewById(R.id.btn_create)
+        TextInput = PopUpNoDialog.findViewById(R.id.et_create)
+        val textInput = TextInput.text
 
         BtnInput.setOnClickListener{
+
+
+            if(textInput.isNotEmpty()){
+            Toast.makeText(applicationContext, "$textInput", Toast.LENGTH_SHORT).show()
             val intent = Intent(this,MainActivity::class.java)
             startActivity(intent)
+            }else{
+                Toast.makeText(applicationContext, "input text", Toast.LENGTH_SHORT).show()
+            }
+
         }
+
     }
-    private fun setCreateFam(name: String){
-        ApiConfig.getApiService().createFamily("Nasution Family")
+
+    private fun setCreateFam(){
+        ApiConfig.getApiService().createFamily("Ridho Family")
             .enqueue(object: Callback<FamilyResponse> {
                 override fun onResponse(
                     call: Call<FamilyResponse>,
                     response: Response<FamilyResponse>
                 ) {
                     if (response.isSuccessful){
-                        val user = response.body()
-                        user!!.name.let { Log.e("name",it) }
+                       // val user = response.body()
+                        Toast.makeText(applicationContext, "irgthhthtnput text", Toast.LENGTH_SHORT).show()
+                       // user!!.familyId.let { Log.d("familyId",it) }
                     }
                 }
 
                 override fun onFailure(call: Call<FamilyResponse>, t: Throwable) {
-//                    Log.d(ContentValues.TAG, "onFailure: ${t.message.toString()}")
+                Log.d(ContentValues.TAG, "onFailure: ${t.message.toString()}")
 
                 }
 

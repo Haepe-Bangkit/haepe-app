@@ -4,12 +4,6 @@ import com.google.gson.annotations.SerializedName
 import retrofit2.http.Field
 
 data class LoginResponse(
-//    @field:SerializedName("statusCode")
-//    val statusCode: String,
-//    @field:SerializedName("error")
-//    val error: String,
-//    @field:SerializedName("message")
-//    val message: String
     @field:SerializedName("idToken")
     val idToken: String,
     @field:SerializedName("userId")
@@ -23,8 +17,8 @@ data class FamilyResponse(
 //    val error: String,
 //    @field:SerializedName("message")
 //    val message: String,
-    @field:SerializedName("familyId")
-    val name: String
+        @field:SerializedName("familyId")
+        val familyId: String
 //    @field:SerializedName("id")
 //    val id: String
 )
