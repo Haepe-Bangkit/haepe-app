@@ -9,14 +9,19 @@ import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
+import com.example.cemaraapps.LoginActivity.Companion.EXTRA_NAME
 import com.example.cemaraapps.databinding.ActivityIntroBinding
 import com.example.cemaraapps.model.IntroItem
 import java.text.FieldPosition
 
 class IntroActivity : AppCompatActivity() {
+    companion object{
+        const val EXTRA_NAME2 = "EXTRA_NAME2"
+    }
     private lateinit var introAdapter: IntroAdapter
     private lateinit var indicatorContainer: LinearLayout
     private lateinit var binding: ActivityIntroBinding
@@ -25,26 +30,39 @@ class IntroActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val nameLogin = intent.getStringExtra(EXTRA_NAME)
+
         preferences = getSharedPreferences("Intro Slider",Context.MODE_PRIVATE)
         if(!preferences.getBoolean(pref_show_intro,true)){
-            startActivity(Intent(this,QfamilyActivity::class.java))
+            val intent = Intent(this,QfamilyActivity::class.java)
+            intent.putExtra(EXTRA_NAME2, nameLogin)
+            startActivity(intent)
             finish()
         }
         binding = ActivityIntroBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.buttonGetStarted.isVisible = false
         setIntroItems()
         setupIndicators()
         setCurrentIndicator(0)
-
         binding.apply {
             skipIntro.setOnClickListener{
-                val editor = preferences.edit()
-                editor.putBoolean(pref_show_intro,false)
-                editor.apply()
-                startActivity(Intent(this@IntroActivity,QfamilyActivity::class.java))
+                intentAndPreferences()
+            }
+            buttonGetStarted.setOnClickListener {
+                intentAndPreferences()
             }
         }
 
+    }
+    private fun intentAndPreferences(){
+        val nameLogin = intent.getStringExtra(EXTRA_NAME)
+        val editor = preferences.edit()
+        editor.putBoolean(pref_show_intro,false)
+        editor.apply()
+        val intent = Intent(this@IntroActivity,QfamilyActivity::class.java)
+        intent.putExtra(EXTRA_NAME2, nameLogin)
+        startActivity(intent)
     }
     private fun setIntroItems(){
         introAdapter = IntroAdapter(
@@ -77,6 +95,9 @@ class IntroActivity : AppCompatActivity() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 setCurrentIndicator(position)
+                if(position == 3){
+                    binding.buttonGetStarted.isVisible = true
+                }
             }
         })
 
@@ -109,7 +130,7 @@ class IntroActivity : AppCompatActivity() {
         val childCount=indicatorContainer.childCount
         for(i in 0 until childCount){
             val imageView = indicatorContainer.getChildAt(i) as ImageView
-            if(i== position) {
+            if( i== position) {
                 imageView.setImageDrawable(
                     ContextCompat.getDrawable(
                         applicationContext,

@@ -10,34 +10,41 @@ import android.view.Gravity
 import android.view.Window
 import android.widget.EditText
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatDialog
 import androidx.appcompat.widget.AppCompatButton
-import androidx.core.view.isVisible
 import com.example.cemaraapps.Api.ApiConfig
+import com.example.cemaraapps.IntroActivity.Companion.EXTRA_NAME2
 import com.example.cemaraapps.databinding.ActivityQfamilyBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.*
 
 class QfamilyActivity : AppCompatActivity() {
+    companion object{
+        const val EXTRA_NAME3 = "EXTRA_NAME3"
+    }
     private lateinit var binding: ActivityQfamilyBinding
     private lateinit var PopUpYesDialog: Dialog
     private lateinit var PopUpNoDialog: Dialog
+    private lateinit var PopUpAskDialog: Dialog
     private lateinit var BtnInput: AppCompatButton
+    private lateinit var BtnInputYes: AppCompatButton
+    private lateinit var BtnInputNo: AppCompatButton
     private lateinit var TextInput: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         binding = ActivityQfamilyBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        super.onCreate(savedInstanceState)
-        setCreateFam()
+
         PopUpYesDialog = Dialog(this)
         PopUpYesDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         PopUpYesDialog.setContentView(R.layout.activity_popup_yes)
         PopUpYesDialog.window?.setGravity(Gravity.BOTTOM)
         PopUpYesDialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
 
+        PopUpAskDialog = Dialog(this)
+        PopUpAskDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        PopUpAskDialog.setContentView(R.layout.activity_ask_create_family)
 
         PopUpNoDialog = Dialog(this)
         PopUpNoDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -58,10 +65,20 @@ class QfamilyActivity : AppCompatActivity() {
 
     private fun PopUpYes(){
         PopUpYesDialog.show()
-
         BtnInput = PopUpYesDialog.findViewById(R.id.btn_join)
-        BtnInput.setOnClickListener{
-            startActivity(Intent(applicationContext, MainActivity::class.java))
+        TextInput = PopUpYesDialog.findViewById(R.id.et_join)
+        val textInput = TextInput.text
+        val nameIntro = intent.getStringExtra(EXTRA_NAME2)
+
+        BtnInput.setOnClickListener {
+        if(textInput.isNotEmpty()){
+            val intent = Intent(this,MainActivity::class.java)
+            intent.putExtra(EXTRA_NAME3,nameIntro)
+            startActivity(intent)
+            finish()
+        }else{
+            Toast.makeText(applicationContext, "Mohon input text", Toast.LENGTH_SHORT).show()
+        }
         }
     }
     private fun PopUpNo(){
@@ -70,16 +87,26 @@ class QfamilyActivity : AppCompatActivity() {
         BtnInput = PopUpNoDialog.findViewById(R.id.btn_create)
         TextInput = PopUpNoDialog.findViewById(R.id.et_create)
         val textInput = TextInput.text
+        val nameIntro = intent.getStringExtra(EXTRA_NAME2)
 
         BtnInput.setOnClickListener{
-
-
             if(textInput.isNotEmpty()){
-            Toast.makeText(applicationContext, "$textInput", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this,MainActivity::class.java)
-            startActivity(intent)
+                PopUpAskDialog.show()
+                BtnInputYes = PopUpAskDialog.findViewById(R.id.btn_yes_ask)
+                BtnInputNo = PopUpAskDialog.findViewById(R.id.btn_no_ask)
+                BtnInputNo.setOnClickListener {
+                    PopUpAskDialog.hide()
+                }
+                BtnInputYes.setOnClickListener {
+                   // setCreateFam()
+                    val intent = Intent(this,MainActivity::class.java)
+                    intent.putExtra(EXTRA_NAME3,nameIntro)
+                    startActivity(intent)
+                    finish()
+                }
+
             }else{
-                Toast.makeText(applicationContext, "input text", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, "Mohon input text", Toast.LENGTH_SHORT).show()
             }
 
         }
@@ -107,8 +134,4 @@ class QfamilyActivity : AppCompatActivity() {
             })
     }
 
-
-    companion object{
-        const val EXTRA_FAM = "EXTRA_FAM"
-    }
 }
