@@ -5,12 +5,20 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
+import android.widget.ImageView
+import android.widget.LinearLayout
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.example.cemaraapps.databinding.ActivityIntroBinding
 import com.example.cemaraapps.model.IntroItem
+import java.text.FieldPosition
 
 class IntroActivity : AppCompatActivity() {
     private lateinit var introAdapter: IntroAdapter
+    private lateinit var indicatorContainer: LinearLayout
     private lateinit var binding: ActivityIntroBinding
     lateinit var preferences: SharedPreferences
     val pref_show_intro = "Intro"
@@ -18,7 +26,6 @@ class IntroActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         preferences = getSharedPreferences("Intro Slider",Context.MODE_PRIVATE)
-
         if(!preferences.getBoolean(pref_show_intro,true)){
             startActivity(Intent(this,QfamilyActivity::class.java))
             finish()
@@ -26,6 +33,8 @@ class IntroActivity : AppCompatActivity() {
         binding = ActivityIntroBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setIntroItems()
+        setupIndicators()
+        setCurrentIndicator(0)
 
         binding.apply {
             skipIntro.setOnClickListener{
@@ -63,8 +72,58 @@ class IntroActivity : AppCompatActivity() {
                 ))
         val ItemIntroViewPager = findViewById<ViewPager2>(R.id.Intro_viewPager)
         ItemIntroViewPager.adapter = introAdapter
+        ItemIntroViewPager.registerOnPageChangeCallback(object :
+        ViewPager2.OnPageChangeCallback(){
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                setCurrentIndicator(position)
+            }
+        })
 
+        (ItemIntroViewPager.getChildAt(0) as RecyclerView).overScrollMode =
+            RecyclerView.OVER_SCROLL_NEVER
 
+    }
+    private fun setupIndicators(){
+        indicatorContainer = findViewById(R.id.indicatorsContainer)
+        val indicators = arrayOfNulls<ImageView>(introAdapter.itemCount)
+        val layoutParams : LinearLayout.LayoutParams =
+            LinearLayout.LayoutParams(WRAP_CONTENT,WRAP_CONTENT)
+        layoutParams.setMargins(8,0,8,0)
+        for(i in indicators.indices){
+            indicators[i] = ImageView(applicationContext)
+            indicators[i]?.let {
+                it.setImageDrawable(
+                    ContextCompat.getDrawable(
+                        applicationContext,
+                        R.drawable.indicator_inactive
+                    )
+                )
+                it.layoutParams = layoutParams
+                indicatorContainer.addView(it)
+            }
+        }
+    }
 
+    private fun setCurrentIndicator(position: Int){
+        val childCount=indicatorContainer.childCount
+        for(i in 0 until childCount){
+            val imageView = indicatorContainer.getChildAt(i) as ImageView
+            if(i== position) {
+                imageView.setImageDrawable(
+                    ContextCompat.getDrawable(
+                        applicationContext,
+                        R.drawable.indicator_active
+                    )
+                )
+            } else {
+                imageView.setImageDrawable(
+                    ContextCompat.getDrawable(
+                        applicationContext,
+                        R.drawable.indicator_inactive
+                    )
+                )
+            }
+        }
     }
 }
