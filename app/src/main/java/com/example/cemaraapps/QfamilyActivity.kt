@@ -25,6 +25,8 @@ class QfamilyActivity : AppCompatActivity() {
     private lateinit var PopUpYesDialog: Dialog
     private lateinit var PopUpNoDialog: Dialog
     private lateinit var BtnInput: AppCompatButton
+
+
     private lateinit var TextInput: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -94,9 +96,9 @@ class QfamilyActivity : AppCompatActivity() {
                     response: Response<FamilyResponse>
                 ) {
                     if (response.isSuccessful){
-                       // val user = response.body()
-                        Toast.makeText(applicationContext, "irgthhthtnput text", Toast.LENGTH_SHORT).show()
-                       // user!!.familyId.let { Log.d("familyId",it) }
+                        val user = response.body()
+//                        Toast.makeText(applicationContext, "irgthhthtnput text", Toast.LENGTH_SHORT).show()
+                        user!!.familyId.let { Log.d("familyId",it) }
                     }
                 }
 
