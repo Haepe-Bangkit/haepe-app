@@ -31,7 +31,7 @@ class QfamilyActivity : AppCompatActivity() {
         binding = ActivityQfamilyBinding.inflate(layoutInflater)
         setContentView(binding.root)
         super.onCreate(savedInstanceState)
-        setCreateFam()
+
         PopUpYesDialog = Dialog(this)
         PopUpYesDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         PopUpYesDialog.setContentView(R.layout.activity_popup_yes)
@@ -58,21 +58,30 @@ class QfamilyActivity : AppCompatActivity() {
 
     private fun PopUpYes(){
         PopUpYesDialog.show()
-
+        setJoinFam()
         BtnInput = PopUpYesDialog.findViewById(R.id.btn_join)
+        TextInput = PopUpNoDialog.findViewById(R.id.et_join)
+        val textInput = TextInput.text
+
         BtnInput.setOnClickListener{
-            startActivity(Intent(applicationContext, MainActivity::class.java))
+            if(textInput.isNotEmpty()){
+                Toast.makeText(applicationContext, "$textInput", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this,MainActivity::class.java)
+                startActivity(intent)
+            }else{
+                Toast.makeText(applicationContext, "input text", Toast.LENGTH_SHORT).show()
+            }
         }
     }
     private fun PopUpNo(){
-
         PopUpNoDialog.show()
+        setCreateFam()
+
         BtnInput = PopUpNoDialog.findViewById(R.id.btn_create)
         TextInput = PopUpNoDialog.findViewById(R.id.et_create)
         val textInput = TextInput.text
 
         BtnInput.setOnClickListener{
-
 
             if(textInput.isNotEmpty()){
             Toast.makeText(applicationContext, "$textInput", Toast.LENGTH_SHORT).show()
@@ -106,8 +115,25 @@ class QfamilyActivity : AppCompatActivity() {
 
             })
     }
+    private fun setJoinFam() {
+        ApiConfig.getApiService().joinFamily("")
+            .enqueue(object : Callback<FamilyJoinResponse> {
+                override fun onResponse(
+                    call: Call<FamilyJoinResponse>,
+                    response: Response<FamilyJoinResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        val user = response.body()
+                        user!!.data.id.let { Log.d("id", it) }
+                    }
+                }
 
+                override fun onFailure(call: Call<FamilyJoinResponse>, t: Throwable) {
+                    Log.d(ContentValues.TAG, "onFailure: ${t.message.toString()}")
+                }
 
+            })
+    }
     companion object{
         const val EXTRA_FAM = "EXTRA_FAM"
     }

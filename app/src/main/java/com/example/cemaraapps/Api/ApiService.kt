@@ -1,5 +1,7 @@
 package com.example.cemaraapps.Api
 
+import com.example.cemaraapps.FamilyGetResponse
+import com.example.cemaraapps.FamilyJoinResponse
 import com.example.cemaraapps.FamilyResponse
 import com.example.cemaraapps.LoginResponse
 import retrofit2.Call
@@ -19,9 +21,15 @@ interface ApiService {
         @Field("name") name: String
     ): Call<FamilyResponse>
 
+    //Family join
     @FormUrlEncoded
     @POST("family")
     fun joinFamily(
         @Field("id") id: String
-    ): Call<FamilyResponse>
+    ): Call<FamilyJoinResponse>
+
+    //Family get
+    @FormUrlEncoded
+    @GET("family")
+    fun getFamily(): Call<FamilyGetResponse>
 }

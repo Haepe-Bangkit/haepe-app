@@ -51,7 +51,7 @@ data class familyGetResponse(
     @field:SerializedName("body")
     val body: bodyGetResponse,
     @field:SerializedName("members")
-    val message: ArrayList<membersResponse>
+    val members: ArrayList<membersResponse>
 )
 data class bodyGetResponse(
     @field:SerializedName("calenderId")
