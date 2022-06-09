@@ -39,10 +39,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="@string/title"
+        android:text="@string/who_will_do"
         android:textColor="#000000"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/etTitle"
+        app:layout_constraintStart_toStartOf="@+id/etWho"
         app:layout_constraintTop_toBottomOf="@+id/tv_task" />
 
     <TextView
@@ -55,8 +55,8 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/etTitle"
-        app:layout_constraintTop_toBottomOf="@+id/etTitle" />
+        app:layout_constraintStart_toStartOf="@+id/etWho"
+        app:layout_constraintTop_toBottomOf="@+id/etWho" />
 
     <TextView
         android:id="@+id/tv_task3"
@@ -82,32 +82,8 @@
         app:layout_constraintStart_toStartOf="@+id/et_Start2"
         app:layout_constraintTop_toBottomOf="@+id/et_Start2" />
 
-    <TextView
-        android:id="@+id/tv_task5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/who_will_do"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/et_Time2"
-        app:layout_constraintTop_toBottomOf="@+id/et_Time2" />
-
-    <TextView
-        android:id="@+id/tv_task6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:text="@string/description"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/etWho"
-        app:layout_constraintTop_toBottomOf="@+id/etWho" />
-
     <EditText
-        android:id="@+id/etTitle"
+        android:id="@+id/etWho"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
@@ -118,39 +94,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_task1" />
 
-    <EditText
-        android:id="@+id/etWho"
-        android:layout_width="340dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:ems="10"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tv_task5"
-        app:layout_constraintTop_toBottomOf="@+id/tv_task5" />
-
-    <EditText
-        android:id="@+id/etDes"
-        android:layout_width="354dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="4dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="@+id/tv_task6"
-        app:layout_constraintTop_toBottomOf="@+id/tv_task6" />
-
     <Button
         android:id="@+id/btn_addTask"
         android:layout_width="272dp"
         android:layout_height="42dp"
         android:backgroundTint="@color/gold"
-        android:text="@string/btn_create_new_task"
+        android:text="next"
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etDes" />
+        app:layout_constraintTop_toBottomOf="@+id/et_Time2"
+        app:layout_constraintVertical_bias="0.833" />
 
     <TextView
         android:id="@+id/et_Date"
