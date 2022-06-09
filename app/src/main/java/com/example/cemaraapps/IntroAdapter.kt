@@ -31,6 +31,7 @@ class IntroAdapter(private val IntroItems:List<IntroItem>):
         private val imageOnboarding = view.findViewById<ImageView>(R.id.imageIntro)
         private val textTitle = view.findViewById<TextView>(R.id.title_intro)
         private val textDescription = view.findViewById<TextView>(R.id.text_intro)
+
         fun bind(IntroItem: IntroItem) {
             imageOnboarding.setImageResource(IntroItem.imageIntro)
             textTitle.text = IntroItem.titleIntro

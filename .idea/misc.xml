@@ -44,18 +44,28 @@
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/HeaPeApps/app/src/main/res/layout/activity_todo_list.xml" value="0.1796875" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/HeaPeApps/app/src/main/res/layout/item_intro.xml" value="0.1796875" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/HeaPeApps/app/src/main/res/layout/todo_list.xml" value="0.1796875" />
+        <entry key="..\:/Users/Ridho Aqli Efendi/AndroidStudioProjects/HeaPe/app/src/main/res/drawable-v24/dot.xml" value="0.1165" />
+        <entry key="..\:/Users/Ridho Aqli Efendi/AndroidStudioProjects/HeaPe/app/src/main/res/drawable/bg_popup.xml" value="0.1325" />
+        <entry key="..\:/Users/Ridho Aqli Efendi/AndroidStudioProjects/HeaPe/app/src/main/res/drawable/bg_qfamily.xml" value="0.1325" />
+        <entry key="..\:/Users/Ridho Aqli Efendi/AndroidStudioProjects/HeaPe/app/src/main/res/drawable/button_ask.xml" value="0.1165" />
+        <entry key="..\:/Users/Ridho Aqli Efendi/AndroidStudioProjects/HeaPe/app/src/main/res/drawable/ic_abstract_user_flat_1.xml" value="0.1165" />
         <entry key="..\:/Users/Ridho Aqli Efendi/AndroidStudioProjects/HeaPe/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.1225" />
         <entry key="..\:/Users/Ridho Aqli Efendi/AndroidStudioProjects/HeaPe/app/src/main/res/drawable/ic_baseline_navigate_next_24.xml" value="0.1225" />
         <entry key="..\:/Users/Ridho Aqli Efendi/AndroidStudioProjects/HeaPe/app/src/main/res/drawable/ic_right_24.xml" value="0.1225" />
         <entry key="..\:/Users/Ridho Aqli Efendi/AndroidStudioProjects/HeaPe/app/src/main/res/drawable/icon_intro.xml" value="0.1225" />
+        <entry key="..\:/Users/Ridho Aqli Efendi/AndroidStudioProjects/HeaPe/app/src/main/res/drawable/indicator_active.xml" value="0.1325" />
+        <entry key="..\:/Users/Ridho Aqli Efendi/AndroidStudioProjects/HeaPe/app/src/main/res/drawable/indicator_inactive.xml" value="0.1325" />
         <entry key="..\:/Users/Ridho Aqli Efendi/AndroidStudioProjects/HeaPe/app/src/main/res/drawable/intro_item.xml" value="0.1225" />
         <entry key="..\:/Users/Ridho Aqli Efendi/AndroidStudioProjects/HeaPe/app/src/main/res/drawable/introbackground.xml" value="0.1225" />
+        <entry key="..\:/Users/Ridho Aqli Efendi/AndroidStudioProjects/HeaPe/app/src/main/res/layout/activity_ask_create_family.xml" value="0.264" />
         <entry key="..\:/Users/Ridho Aqli Efendi/AndroidStudioProjects/HeaPe/app/src/main/res/layout/activity_calendar.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Ridho Aqli Efendi/AndroidStudioProjects/HeaPe/app/src/main/res/layout/activity_chart.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Ridho Aqli Efendi/AndroidStudioProjects/HeaPe/app/src/main/res/layout/activity_intro.xml" value="0.264" />
         <entry key="..\:/Users/Ridho Aqli Efendi/AndroidStudioProjects/HeaPe/app/src/main/res/layout/activity_login.xml" value="0.17395833333333333" />
         <entry key="..\:/Users/Ridho Aqli Efendi/AndroidStudioProjects/HeaPe/app/src/main/res/layout/activity_main.xml" value="0.4" />
-        <entry key="..\:/Users/Ridho Aqli Efendi/AndroidStudioProjects/HeaPe/app/src/main/res/layout/activity_popup_no.xml" value="0.4" />
+        <entry key="..\:/Users/Ridho Aqli Efendi/AndroidStudioProjects/HeaPe/app/src/main/res/layout/activity_popup_no.xml" value="0.2" />
+        <entry key="..\:/Users/Ridho Aqli Efendi/AndroidStudioProjects/HeaPe/app/src/main/res/layout/activity_popup_yes.xml" value="0.2" />
+        <entry key="..\:/Users/Ridho Aqli Efendi/AndroidStudioProjects/HeaPe/app/src/main/res/layout/activity_qfamily.xml" value="0.264" />
         <entry key="..\:/Users/Ridho Aqli Efendi/AndroidStudioProjects/HeaPe/app/src/main/res/layout/activity_rolefix.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Ridho Aqli Efendi/AndroidStudioProjects/HeaPe/app/src/main/res/layout/activity_task.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Ridho Aqli Efendi/AndroidStudioProjects/HeaPe/app/src/main/res/layout/activity_todo_list.xml" value="0.27447916666666666" />
