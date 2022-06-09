@@ -88,8 +88,11 @@ class LoginActivity : AppCompatActivity() {
                     response: Response<LoginResponse>
                 ) {
                     if (response.isSuccessful) {
-//                    val user = response.body()
-//                        Toast.makeText(applicationContext, "input text", Toast.LENGTH_SHORT).show()
+                    val user = response.body()
+                        if(user!=null){
+                        user!!.data.idToken.let { Log.d("idToken",it) }
+                        user!!.data.userId.let { Log.d("userId",it) }
+                        }
                     }
                 }
 
