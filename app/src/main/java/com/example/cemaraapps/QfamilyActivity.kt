@@ -65,7 +65,7 @@ class QfamilyActivity : AppCompatActivity() {
         }
     }
     private fun PopUpNo(){
-        setCreateFam()
+
         PopUpNoDialog.show()
         BtnInput = PopUpNoDialog.findViewById(R.id.btn_create)
         TextInput = PopUpNoDialog.findViewById(R.id.et_create)
@@ -87,16 +87,15 @@ class QfamilyActivity : AppCompatActivity() {
     }
 
     private fun setCreateFam(){
-        ApiConfig.getApiService().createFamily("Ridho Family")
+        ApiConfig.getApiService().createFamily("RidhoFamily")
             .enqueue(object: Callback<FamilyResponse> {
                 override fun onResponse(
                     call: Call<FamilyResponse>,
                     response: Response<FamilyResponse>
                 ) {
                     if (response.isSuccessful){
-                       // val user = response.body()
-                        Toast.makeText(applicationContext, "irgthhthtnput text", Toast.LENGTH_SHORT).show()
-                       // user!!.familyId.let { Log.d("familyId",it) }
+                       val user = response.body()
+                       user!!.data.familyId.let { Log.d("familyId",it) }
                     }
                 }
 
