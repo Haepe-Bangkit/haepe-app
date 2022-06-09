@@ -21,8 +21,8 @@ class TaskActivity : AppCompatActivity() {
             backTask.setOnClickListener {
                 super.onBackPressed()
             }
-            btnAddTask.setOnClickListener {
-                Toast.makeText(applicationContext, "Task Berhasil ditambahkan", Toast.LENGTH_SHORT).show()
+            btnNextAddTask.setOnClickListener {
+                Toast.makeText(applicationContext, "Lanjutkan untuk membuat task", Toast.LENGTH_SHORT).show()
             }
             etDate.text = intent.getStringExtra(EXTRA_DATE)
             startTimeButton.setOnClickListener {
