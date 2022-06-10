@@ -11,7 +11,6 @@ interface ApiService {
     @FormUrlEncoded
     @POST("auth/login")
     fun getLogin(
-        @Header("Authorization") Authorization: String,
         @Field("idToken") idToken: String
     ): Call<LoginResponse>
 
@@ -19,7 +18,7 @@ interface ApiService {
     @FormUrlEncoded
     @POST("family")
     fun createFamily(
-        @Header("Authorization") Authorization:String,
+        @Header("Authorization") idToken:String,
         @Field("name") name: String
     ): Call<FamilyResponse>
 

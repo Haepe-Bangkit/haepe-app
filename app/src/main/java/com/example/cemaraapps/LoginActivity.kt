@@ -11,8 +11,13 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStore
+import androidx.lifecycle.ViewModelProvider
 import com.example.cemaraapps.Api.ApiConfig
 import com.example.cemaraapps.databinding.ActivityLoginBinding
+import com.example.cemaraapps.model.DataUser
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -22,21 +27,25 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-
+private val Context.dataStore: DataStore<Preferences> by preferencesDataStore("settings")
 class LoginActivity : AppCompatActivity() {
     companion object {
         const val RC_SIGN_IN = 123
         const val EXTRA_NAME = "EXTRA_NAME"
     }
-
+    private lateinit var loginViewModel: LoginViewModel
     private lateinit var binding: ActivityLoginBinding
-    lateinit var prefLogin: SharedPreferences
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        loginViewModel = ViewModelProvider(
+            this,
+            ViewModelFactory(UserPreferences.getInstance(dataStore))
+        )[LoginViewModel::class.java]
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken("339240129870-fkefjuqt2uhbb3dj3j7ig9aaodeodj8g.apps.googleusercontent.com")
@@ -50,17 +59,8 @@ class LoginActivity : AppCompatActivity() {
                 startActivityForResult(signInIntent, RC_SIGN_IN)
             }
 
-
-//        binding.btnSignIn.visibility = View.VISIBLE
-
-
-//        val acct = GoogleSignIn.getLastSignedInAccount(this)
-//        if (acct != null) {
-//            binding.btnSignIn.visibility = View.VISIBLE
-//        }
-
-
     }
+
 
     private fun updateUI(currentUser: GoogleSignInAccount?) {
 
@@ -82,37 +82,14 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun setLogin(idToken: String) {
-        ApiConfig.getApiService().getLogin(idToken)
-            .enqueue(object : Callback<LoginResponse> {
-                override fun onResponse(
-                    call: Call<LoginResponse>,
-                    response: Response<LoginResponse>
-                ) {
-                    if (response.isSuccessful) {
-                    val user = response.body()
-                        if(user!=null){
-                        user.data.idToken.let { Log.d("idTokenAPI",it) }
-                        }
-                    }
-                }
-
-                override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                    Log.d(TAG, "onFailure: ${t.message.toString()}")
-                }
-
-            })
-    }
 
     private fun handleSignInResult(completedTask: Task<GoogleSignInAccount>) {
         try {
             val account: GoogleSignInAccount = completedTask.getResult(ApiException::class.java)
             val idToken = account.idToken.toString()
             Log.d("idTokenGoogleAuth", idToken)
-            setLogin(idToken)
+            loginViewModel.setLogin(idToken)
             updateUI(account)
-
-
 
         } catch (e: ApiException) {
             Log.w(TAG, "signInResult:failed code = " + e.getStatusCode())
