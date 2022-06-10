@@ -114,7 +114,7 @@ class QfamilyActivity : AppCompatActivity() {
     }
 
     private fun setCreateFam(){
-        ApiConfig.getApiService().createFamily("RidhoFamily")
+        ApiConfig.getApiService().createFamily("Bearer awdawd","Ridho")
             .enqueue(object: Callback<FamilyResponse> {
                 override fun onResponse(
                     call: Call<FamilyResponse>,

@@ -39,6 +39,7 @@ class IntroActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
         binding = ActivityIntroBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.buttonGetStarted.isVisible = false

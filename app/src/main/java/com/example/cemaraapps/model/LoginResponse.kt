@@ -15,9 +15,7 @@ data class LoginResponse(
     )
 data class dataResponse(
     @field:SerializedName("idToken")
-    val idToken: String,
-    @field:SerializedName("userId")
-    val userId: String
+    val idToken: String
 )
 
 data class FamilyResponse(
