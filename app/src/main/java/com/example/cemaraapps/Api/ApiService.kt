@@ -11,6 +11,7 @@ interface ApiService {
     @FormUrlEncoded
     @POST("auth/login")
     fun getLogin(
+        @Header("Authorization") Authorization: String,
         @Field("idToken") idToken: String
     ): Call<LoginResponse>
 

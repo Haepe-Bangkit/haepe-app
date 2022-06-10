@@ -15,9 +15,7 @@ data class LoginResponse(
     )
 data class dataResponse(
     @field:SerializedName("idToken")
-    val idToken: String,
-    @field:SerializedName("userId")
-    val userId: String
+    val idToken: String
 )
 
 data class FamilyResponse(
@@ -43,9 +41,9 @@ data class FamilyGetResponse(
     @field:SerializedName("message")
     val message: String,
     @field:SerializedName("data")
-    val data: familyGetResponse
+    val data: famGetResponse
 )
-data class familyGetResponse(
+data class famGetResponse(
     @field:SerializedName("id")
     val id: String,
     @field:SerializedName("body")
@@ -82,9 +80,9 @@ data class FamilyJoinResponse(
     @field:SerializedName("message")
     val message: String,
     @field:SerializedName("data")
-    val data: familyJoinResponse
+    val data: famJoinResponse
 )
-data class familyJoinResponse(
+data class famJoinResponse(
     @field:SerializedName("id")
     val id: String
 )
