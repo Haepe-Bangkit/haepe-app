@@ -100,7 +100,6 @@ class QfamilyActivity : AppCompatActivity() {
                         if (response.isSuccessful){
                             val responseBody = response.body()
                             if (responseBody != null){
-                                responseBody.message.let{ Log.e("pesan",it) }
                                 Toast.makeText(this@QfamilyActivity, "Berhasil Join keluarga", Toast.LENGTH_SHORT).show()
                                 val intent = Intent(this@QfamilyActivity,MainActivity::class.java)
                                 intent.putExtra(EXTRA_NAME3,nameIntro)

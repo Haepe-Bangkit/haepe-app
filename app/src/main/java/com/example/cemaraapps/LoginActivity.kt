@@ -28,6 +28,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 import kotlinx.coroutines.launch
+import org.chromium.base.Promise
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -92,12 +93,14 @@ class LoginActivity : AppCompatActivity() {
             val account: GoogleSignInAccount = completedTask.getResult(ApiException::class.java)
             val idTokenAuth = account.idToken.toString()
             Log.d("idTokenGoogleAuth", idTokenAuth)
-            loginViewModel.setLogin(idTokenAuth)
-            updateUI(account)
+            loginViewModel.setLogin(idTokenAuth) {
+                updateUI(account)
+            }
 
         } catch (e: ApiException) {
-            Log.w(TAG, "signInResult:failed code = " + e.getStatusCode())
+            Log.w(TAG, "signInResult:failed code = " + e.statusCode)
             updateUI(null)
         }
     }
+
 }
