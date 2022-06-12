@@ -22,6 +22,7 @@ class RoleActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityRoleBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        var dataMinat = mutableListOf<String>()
 
         radioButton1 = binding.Father
         radioButton2 = binding.Mother
@@ -34,14 +35,18 @@ class RoleActivity : AppCompatActivity() {
 
 
             confirmMembers.setOnClickListener {
-                var pil = "as"
-                if(radioButton1.isChecked){
-                    pil = "Father"
+                var pil = ""
+                when {
+                    radioButton1.isChecked -> pil = "Ayah"
+                    radioButton2.isChecked -> pil = "Ibu"
+                    radioButton3.isChecked -> pil = "anak"
+                }
+                when{
+                    Makanan.isChecked -> dataMinat.add("Makanan")
                 }
                 Toast.makeText(applicationContext, "ini: "+pil, Toast.LENGTH_SHORT).show()
-                val intent = Intent(applicationContext, RolefixActivity::class.java)
-                startActivity(intent)
-                intent.putExtra(EXTRA_DATA,pil)
+
+                super.onBackPressed()
                 finish()
             }
         }

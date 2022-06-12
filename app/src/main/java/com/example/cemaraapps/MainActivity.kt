@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
 
             }
             ibMember.setOnClickListener {
-                startActivity(Intent(this@MainActivity, RoleActivity::class.java))
+                startActivity(Intent(this@MainActivity, RolefixActivity::class.java))
             }
             btnLogout.setOnClickListener {
                 mGoogleSignInClient.signOut()
