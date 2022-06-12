@@ -46,35 +46,35 @@ class Task2Activity : AppCompatActivity() {
         }
 
     }
-//        private fun setCreateTask() {
-//            TextInput = findViewById(R.id.etTitle)
-//            val textInput = TextInput.text
-//            val client = ApiConfig.getApiService().createEvent("Bearer ${idToken}",textInput.toString())
-//                .enqueue(object : Callback<CreateEventResponse> {
-//                    override fun onResponse(
-//                        call: Call<CreateEventResponse>,
-//                        response: Response<CreateEventResponse>
-//                    ) {
-//                        if (response.isSuccessful){
-//                            val responseBody = response.body()
-//                            if (responseBody != null){
-//                                responseBody.data.id.let { Log.d("Id",it) }
-//                                responseBody.data.body.let { Log.d("Body", it.toString()) }
-//
-//                                Toast.makeText(this@Task2Activity, responseBody.message, Toast.LENGTH_SHORT).show()
-//                            }
-//                        } else {
-//                            Toast.makeText(this@Task2Activity, "Gagal menambahkan task", Toast.LENGTH_SHORT).show()
-//                        }
-//                    }
-//
-//                    override fun onFailure(call: Call<CreateEventResponse>, t: Throwable) {
-//                        Log.d(ContentValues.TAG, "onFailure: ${t.message.toString()}")
-//
-//                    }
-//
-//                })
-//    }
+        private fun setCreateTask() {
+            TextInput = findViewById(R.id.etTitle)
+            val textInput = TextInput.text
+            val client = ApiConfig.getApiService().insertEvent("Bearer ",textInput.toString())
+                .enqueue(object : Callback<CreateEventResponse> {
+                    override fun onResponse(
+                        call: Call<CreateEventResponse>,
+                        response: Response<CreateEventResponse>
+                    ) {
+                        if (response.isSuccessful){
+                            val responseBody = response.body()
+                            if (responseBody != null){
+                                responseBody.data.id.let { Log.d("Id",it) }
+                                responseBody.data.body.let { Log.d("Body", it.toString()) }
+
+                                Toast.makeText(this@Task2Activity, responseBody.message, Toast.LENGTH_SHORT).show()
+                            }
+                        } else {
+                            Toast.makeText(this@Task2Activity, "Gagal menambahkan task", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+
+                    override fun onFailure(call: Call<CreateEventResponse>, t: Throwable) {
+                        Log.d(ContentValues.TAG, "onFailure: ${t.message.toString()}")
+
+                    }
+
+                })
+    }
 //    private fun downloadModel() {
 //        val condition = CustomModelDownloadConditions.Builder()
 //            .requireWifi()
