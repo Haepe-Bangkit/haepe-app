@@ -34,9 +34,14 @@ interface ApiService {
     ): Call<FamilyGetResponse>
 
     //task
-    @GET("event")
-    fun createEvent(
+    @FormUrlEncoded
+    @POST("event")
+    fun insertEvent(
         @Header("Authorization") idToken:String,
-        @Field("id") id:String
+        @Field("id") id:String,
+//        @Field("summary") summary:String,
+//        @Field("start") start:String,
+//        @Field("end") end:String,
+//        @Field("description") description:String
     ): Call<CreateEventResponse>
 }

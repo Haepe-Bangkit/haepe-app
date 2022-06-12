@@ -17,8 +17,9 @@ import retrofit2.Response
 
 class LoginViewModel (private val pref: UserPreferences) : ViewModel(){
 
+    private val idTokenAPI = MutableLiveData<String>()
 
-     fun setLogin(idToken: String) {
+    fun setLogin(idToken: String, callback: () -> Unit) {
         ApiConfig.getApiService().getLogin(idToken)
             .enqueue(object : Callback<LoginResponse> {
                 override fun onResponse(
@@ -34,6 +35,7 @@ class LoginViewModel (private val pref: UserPreferences) : ViewModel(){
                             )
                             saveUser(model)
                             user.data.idToken.let { Log.d("idTokenAPI",it) }
+                            callback.invoke()
                         }
                     }
                 }
@@ -45,8 +47,8 @@ class LoginViewModel (private val pref: UserPreferences) : ViewModel(){
             })
     }
 
-    fun getFamily(idToken: String){
-
+    fun getToken():String{
+        return idTokenAPI.toString()
     }
 
     fun saveFamily(family: DataFamily) {
