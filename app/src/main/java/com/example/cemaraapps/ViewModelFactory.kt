@@ -14,6 +14,9 @@ class ViewModelFactory (private val pref: UserPreferences) : ViewModelProvider.N
             modelClass.isAssignableFrom(QfamilyViewModel::class.java) -> {
                 QfamilyViewModel(pref) as T
             }
+            modelClass.isAssignableFrom(MainViewModel::class.java) -> {
+                MainViewModel(pref) as T
+            }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }
     }

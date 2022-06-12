@@ -2,11 +2,11 @@
     <string name="app_name">HeaPeApps</string>
     <string name="let_s_start">Let\'s start</string>
     <string name="login_with_google">Login with Google</string>
-    <string name="family_task_with_cemara">Family Task with Cemara</string>
+    <string name="family_task_with_HeaPe">Family Task with HeaPe</string>
     <string name="your_web_client_id">Your web client id</string>
     <string name="manage_your">Manage Your</string>
     <string name="img_close">img_close</string>
-    <string name="question_fam">Want to join a Family ?</string>
+    <string name="question_fam">Already have family ?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="who">Who will do</string>
@@ -57,7 +57,7 @@
     <string name="role_user">My Role</string>
     <string name="minat">Minat</string>
     <string name="keahlian">Skill</string>
-    <string name="usia">Age</string>
+    <string name="BirthDay">Birth Day</string>
     <string name="role_ayah">Father</string>
     <string name="role_ibu">Mother</string>
     <string name="role_anak">Children</string>

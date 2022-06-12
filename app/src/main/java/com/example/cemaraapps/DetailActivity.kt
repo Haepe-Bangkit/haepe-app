@@ -24,7 +24,7 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        getDetailFam()
+//        getDetailFam()
 
         binding.apply {
             backDetail.setOnClickListener {
@@ -36,7 +36,7 @@ class DetailActivity : AppCompatActivity() {
 
     }
     private fun getDetailFam() {
-        ApiConfig.getApiService().getFamily()
+        ApiConfig.getApiService().getFamily("efewf")
             .enqueue(object : Callback<FamilyGetResponse> {
                 override fun onResponse(
                     call: Call<FamilyGetResponse>,

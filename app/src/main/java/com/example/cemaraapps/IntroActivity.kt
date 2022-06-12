@@ -54,7 +54,6 @@ class IntroActivity : AppCompatActivity() {
                 intentAndPreferences()
             }
         }
-
     }
     private fun intentAndPreferences(){
         val nameLogin = intent.getStringExtra(EXTRA_NAME)
@@ -64,6 +63,7 @@ class IntroActivity : AppCompatActivity() {
         val intent = Intent(this@IntroActivity,QfamilyActivity::class.java)
         intent.putExtra(EXTRA_NAME2, nameLogin)
         startActivity(intent)
+        finish()
     }
     private fun setIntroItems(){
         introAdapter = IntroAdapter(

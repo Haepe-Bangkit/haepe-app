@@ -7,6 +7,8 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -15,14 +17,17 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
 import com.example.cemaraapps.Api.ApiConfig
 import com.example.cemaraapps.databinding.ActivityLoginBinding
+import com.example.cemaraapps.model.DataFamily
 import com.example.cemaraapps.model.DataUser
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -33,9 +38,9 @@ class LoginActivity : AppCompatActivity() {
         const val RC_SIGN_IN = 123
         const val EXTRA_NAME = "EXTRA_NAME"
     }
+    private val splashTimeOut: Long = 2000
     private lateinit var loginViewModel: LoginViewModel
     private lateinit var binding: ActivityLoginBinding
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,6 +60,7 @@ class LoginActivity : AppCompatActivity() {
         val mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
 
             binding.btnSignIn.setOnClickListener {
+                binding.progressBarLogin.visibility = View.VISIBLE
                 val signInIntent = mGoogleSignInClient.getSignInIntent()
                 startActivityForResult(signInIntent, RC_SIGN_IN)
             }
@@ -63,10 +69,9 @@ class LoginActivity : AppCompatActivity() {
 
 
     private fun updateUI(currentUser: GoogleSignInAccount?) {
-
         if (currentUser != null) {
-            val intent = Intent(applicationContext, IntroActivity::class.java)
-            intent.putExtra(EXTRA_NAME, currentUser.displayName)
+            val intent = Intent(this,IntroActivity::class.java)
+            intent.putExtra(EXTRA_NAME,currentUser.displayName)
             startActivity(intent)
             finish()
         }
@@ -82,13 +87,12 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-
     private fun handleSignInResult(completedTask: Task<GoogleSignInAccount>) {
         try {
             val account: GoogleSignInAccount = completedTask.getResult(ApiException::class.java)
-            val idToken = account.idToken.toString()
-            Log.d("idTokenGoogleAuth", idToken)
-            loginViewModel.setLogin(idToken)
+            val idTokenAuth = account.idToken.toString()
+            Log.d("idTokenGoogleAuth", idTokenAuth)
+            loginViewModel.setLogin(idTokenAuth)
             updateUI(account)
 
         } catch (e: ApiException) {

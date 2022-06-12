@@ -41,9 +41,9 @@
                 android:layout_width="272dp"
                 android:layout_height="42dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="80dp"
+                android:layout_marginTop="40dp"
                 android:backgroundTint="@color/gold"
-                android:text="@string/yes"
+                android:text="Join with code"
                 android:textColor="@color/black"
                 app:cornerRadius="12dp" />
 
@@ -54,17 +54,11 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="16dp"
                 android:backgroundTint="@color/light_blue_"
-                android:text="@string/no"
+                android:text="Create family"
                 android:textColor="@color/black"
                 app:cornerRadius="12dp" />
 
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
 
     </LinearLayout>
 

@@ -2,11 +2,10 @@ package com.example.cemaraapps
 
 import android.content.ContentValues
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import android.widget.Toast
+import androidx.lifecycle.*
 import com.example.cemaraapps.Api.ApiConfig
+import com.example.cemaraapps.model.DataFamily
 import com.example.cemaraapps.model.DataUser
 import kotlinx.coroutines.launch
 import org.json.JSONObject
@@ -29,11 +28,12 @@ class LoginViewModel (private val pref: UserPreferences) : ViewModel(){
                     if (response.isSuccessful) {
                         val user = response.body()
                         if(user!=null){
-                            user.data.idToken.let { Log.d("idTokenAPI",it) }
                             val model = DataUser(
-                                user.data.idToken
+                                user.data.idToken,
+                                true
                             )
                             saveUser(model)
+                            user.data.idToken.let { Log.d("idTokenAPI",it) }
                         }
                     }
                 }
@@ -45,10 +45,23 @@ class LoginViewModel (private val pref: UserPreferences) : ViewModel(){
             })
     }
 
+    fun getFamily(idToken: String){
+
+    }
+
+    fun saveFamily(family: DataFamily) {
+        viewModelScope.launch {
+            pref.saveFamily(family)
+        }
+    }
+    fun getUser(): LiveData<DataUser> {
+        return pref.getUser().asLiveData()
+    }
     fun saveUser(user: DataUser) {
         viewModelScope.launch {
             pref.saveUser(user)
         }
     }
+
 
 }

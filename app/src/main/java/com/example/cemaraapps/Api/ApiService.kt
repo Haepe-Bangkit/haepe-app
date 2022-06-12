@@ -26,11 +26,13 @@ interface ApiService {
     @FormUrlEncoded
     @POST("family")
     fun joinFamily(
+        @Header("Authorization") idToken:String,
         @Field("id") id: String
     ): Call<FamilyJoinResponse>
 
     //Family get
-    @FormUrlEncoded
     @GET("family")
-    fun getFamily(): Call<FamilyGetResponse>
+    fun getFamily(
+        @Header("Authorization") idToken:String
+    ): Call<FamilyGetResponse>
 }

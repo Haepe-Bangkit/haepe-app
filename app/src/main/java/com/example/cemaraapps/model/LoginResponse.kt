@@ -52,10 +52,10 @@ data class famGetResponse(
     val members: ArrayList<membersResponse>
 )
 data class bodyGetResponse(
-    @field:SerializedName("calenderId")
-    val calenderId: String,
     @field:SerializedName("name")
-    val name: String
+    val name: String,
+    @field:SerializedName("calenderId")
+    val calenderId: String
 )
 data class membersResponse(
     @field:SerializedName("id")
@@ -64,12 +64,12 @@ data class membersResponse(
     val body: membersBodyResponse
 )
 data class membersBodyResponse(
-    @field:SerializedName("aclId")
-    val aclId: String,
+    @field:SerializedName("role")
+    val role: String,
     @field:SerializedName("name")
     val name: String,
-    @field:SerializedName("role")
-    val role: String
+    @field:SerializedName("aclId")
+    val aclId: String
 )
 
 data class FamilyJoinResponse(
