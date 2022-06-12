@@ -1,9 +1,6 @@
 package com.example.cemaraapps.Api
 
-import com.example.cemaraapps.FamilyGetResponse
-import com.example.cemaraapps.FamilyJoinResponse
-import com.example.cemaraapps.FamilyResponse
-import com.example.cemaraapps.LoginResponse
+import com.example.cemaraapps.*
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -35,4 +32,11 @@ interface ApiService {
     fun getFamily(
         @Header("Authorization") idToken:String
     ): Call<FamilyGetResponse>
+
+    //task
+    @GET("event")
+    fun createEvent(
+        @Header("Authorization") idToken:String,
+        @Field("id") id:String
+    ): Call<CreateEventResponse>
 }

@@ -29,7 +29,7 @@ class TaskActivity : AppCompatActivity() {
                 val currentTimeStart = Calendar.getInstance()
                 val startHour = currentTimeStart.get(Calendar.HOUR_OF_DAY)
                 val startMinute = currentTimeStart.get(Calendar.MINUTE)
-                TimePickerDialog(this@TaskActivity, { View, HourOfDay, Minute->
+                TimePickerDialog(this@TaskActivity, { _, HourOfDay, Minute->
                     etStart.setText("$HourOfDay : $Minute")
                 },startHour,startMinute,false).show()
             }

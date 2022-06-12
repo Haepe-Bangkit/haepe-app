@@ -24,7 +24,7 @@ class CalendarActivity : AppCompatActivity() {
         setContentView(binding.root)
         cal = Calendar.getInstance()
         datePicker = binding.datePick
-        datePicker.setOnDateChangedListener { datePicker, i, i2, i3 ->
+        datePicker.setOnDateChangedListener { _, i, i2, i3 ->
             cal.set(Calendar.YEAR, i)
             cal.set(Calendar.MONTH, i2)
             cal.set(Calendar.DAY_OF_MONTH,i3)

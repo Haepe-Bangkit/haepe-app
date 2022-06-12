@@ -43,10 +43,10 @@ class DetailActivity : AppCompatActivity() {
                     response: Response<FamilyGetResponse>
                 ) {
                     if (response.isSuccessful) {
-                        val responseBody = response.body()
-                        binding.nameFam.text= responseBody!!.data.body.name
-                        binding.tokenFam.text = responseBody!!.data.id
-                        member = responseBody!!.data.members
+                        val responseBody = response.body()!!
+                        binding.nameFam.text= responseBody.data.body.name
+                        binding.tokenFam.text = responseBody.data.id
+                        member = responseBody.data.members
                     }
                 }
 
