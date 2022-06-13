@@ -402,6 +402,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:ems="10"
+        android:foregroundGravity="center"
+        android:gravity="center"
         android:inputType="date"
         app:layout_constraintEnd_toEndOf="@+id/Age"
         app:layout_constraintStart_toStartOf="@+id/Age"

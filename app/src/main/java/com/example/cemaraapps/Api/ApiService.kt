@@ -37,6 +37,10 @@ interface ApiService {
     @GET("event")
     fun createEvent(
         @Header("Authorization") idToken:String,
-        @Field("id") id:String
+        @Field("id") id:String,
+        @Field("summary") summary:String,
+        @Field("start") start:String,
+        @Field("end") end:String,
+        @Field("description") description:String
     ): Call<CreateEventResponse>
 }

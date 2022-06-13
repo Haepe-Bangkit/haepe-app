@@ -43,7 +43,7 @@ class CalendarActivity : AppCompatActivity() {
                 cal.get(Calendar.MONTH)
                 cal.get(Calendar.DAY_OF_MONTH)
 
-                val myFormat = "dd - MMMM - yyyy"
+                val myFormat = "yyyy-MM-dd"
                 val sdf = SimpleDateFormat(myFormat, Locale.US)
                 val tanggal = sdf.format(cal.time)
 

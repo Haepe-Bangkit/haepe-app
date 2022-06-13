@@ -1,12 +1,17 @@
 package com.example.cemaraapps
 
 import android.content.ContentValues
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.EditText
 import android.widget.Toast
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStore
+import androidx.lifecycle.ViewModelProvider
 import com.example.cemaraapps.Api.ApiConfig
 import com.example.cemaraapps.databinding.ActivityTask2Binding
 import com.google.firebase.ml.common.modeldownload.FirebaseModelDownloadConditions
@@ -24,15 +29,49 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+private val Context.dataStore: DataStore<Preferences> by preferencesDataStore("settings")
 class Task2Activity : AppCompatActivity() {
     private lateinit var binding: ActivityTask2Binding
     private lateinit var TextInput: EditText
-
+    private lateinit var taskActivityViewModel: TaskActivityViewModel
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTask2Binding.inflate(layoutInflater)
         setContentView(binding.root)
 //        setCreateTask()
+
+        var idMember = ""
+        taskActivityViewModel = ViewModelProvider(
+            this,
+            ViewModelFactory(UserPreferences.getInstance(dataStore))
+        )[taskActivityViewModel::class.java]
+
+    taskActivityViewModel.getUser().observe(this){ user->
+        ApiConfig.getApiService().getFamily(user.idToken)
+            .enqueue(object : Callback<FamilyGetResponse> {
+                override fun onResponse(
+                    call: Call<FamilyGetResponse>,
+                    response: Response<FamilyGetResponse>,
+                ) {
+                    if (response.isSuccessful){
+                        val responseBody = response.body()
+                        if (responseBody != null){
+                            val sizeMember = responseBody.data.members.size
+                            idMember = responseBody.data.members[sizeMember].id
+                        }
+
+                    } else {
+                    }
+                }
+
+                override fun onFailure(call: Call<FamilyGetResponse>, t: Throwable) {
+                    Toast.makeText(this@Task2Activity, "gagal menghubungi api", Toast.LENGTH_SHORT).show()
+                }
+
+            })
+    }
+        
         downloadModel()
 
         binding.apply {
@@ -44,8 +83,8 @@ class Task2Activity : AppCompatActivity() {
                     .show()
             }
         }
-
     }
+//
 //        private fun setCreateTask() {
 //            TextInput = findViewById(R.id.etTitle)
 //            val textInput = TextInput.text

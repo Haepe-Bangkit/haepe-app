@@ -7,6 +7,16 @@
     android:fadeScrollbars="false"
     tools:context=".TaskActivity">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_githubUser"
+        android:layout_width="405dp"
+        android:layout_height="83dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_title"
+        tools:listitem="@layout/item_rekomendasi" />
+
     <TextView
         android:id="@+id/tv_task"
         android:layout_width="wrap_content"
@@ -38,31 +48,31 @@
         android:id="@+id/tv_task1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:text="@string/who_will_do"
         android:textColor="#000000"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/etWho"
-        app:layout_constraintTop_toBottomOf="@+id/tv_task" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_task"
+        tools:layout_editor_absoluteX="36dp" />
 
     <TextView
         android:id="@+id/tv_task2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="@string/date"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/etWho"
-        app:layout_constraintTop_toBottomOf="@+id/etWho" />
+        app:layout_constraintStart_toStartOf="@+id/et_Date4"
+        app:layout_constraintTop_toBottomOf="@+id/et_Date4" />
 
     <TextView
         android:id="@+id/tv_task3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="@string/start_time"
         android:textColor="#000000"
         android:textSize="18sp"
@@ -75,31 +85,41 @@
         android:id="@+id/tv_task4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="@string/end_time"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/et_Start2"
         app:layout_constraintTop_toBottomOf="@+id/et_Start2" />
 
-    <EditText
-        android:id="@+id/etWho"
-        android:layout_width="340dp"
+    <TextView
+        android:id="@+id/tv_task5"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:ems="10"
-        android:inputType="textPersonName"
+        android:layout_marginTop="8dp"
+        android:text="Title"
+        android:textColor="#000000"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_task1" />
+        app:layout_constraintStart_toStartOf="@+id/et_End"
+        app:layout_constraintTop_toBottomOf="@+id/et_Time2" />
+
+    <TextView
+        android:id="@+id/tv_task7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
+        android:text="Description"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/et_title"
+        app:layout_constraintTop_toBottomOf="@+id/et_title" />
 
     <Button
         android:id="@+id/btn_nextAddTask"
         android:layout_width="272dp"
         android:layout_height="42dp"
         android:backgroundTint="@color/gold"
-        android:text="next"
+        android:text="Submit"
         android:textColor="@color/black"
         android:textStyle="bold"
         app:cornerRadius="12dp"
@@ -107,18 +127,27 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_Time2"
-        app:layout_constraintVertical_bias="0.833" />
+        app:layout_constraintTop_toBottomOf="@+id/et_desc"
+        app:layout_constraintVertical_bias="0.468" />
 
     <TextView
         android:id="@+id/et_Date"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/tv_task2"
         app:layout_constraintTop_toBottomOf="@+id/tv_task2" />
+
+    <TextView
+        android:id="@+id/et_Date3"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/tv_task1"
+        app:layout_constraintTop_toBottomOf="@+id/tv_task1" />
 
     <TextView
         android:id="@+id/et_Start"
@@ -150,6 +179,17 @@
         app:layout_constraintEnd_toEndOf="@+id/et_Date"
         app:layout_constraintStart_toStartOf="@+id/tv_task2"
         app:layout_constraintTop_toBottomOf="@+id/et_Date" />
+
+    <TextView
+        android:id="@+id/et_Date4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="_____________________________________________________________________"
+        android:textColor="#000000"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="@+id/et_Date3"
+        app:layout_constraintStart_toStartOf="@+id/et_Date3"
+        app:layout_constraintTop_toBottomOf="@+id/et_Date3" />
 
     <TextView
         android:id="@+id/et_Start2"
@@ -194,5 +234,34 @@
         app:layout_constraintStart_toEndOf="@+id/et_End"
         app:layout_constraintTop_toTopOf="@+id/et_End"
         app:srcCompat="@drawable/clock" />
+
+    <RadioButton
+        android:id="@+id/radioButtonDo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Member"
+        app:layout_constraintStart_toStartOf="@+id/tv_task1"
+        app:layout_constraintTop_toBottomOf="@+id/tv_task1" />
+
+    <EditText
+        android:id="@+id/et_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/et_Date2"
+        app:layout_constraintStart_toStartOf="@+id/tv_task5"
+        app:layout_constraintTop_toBottomOf="@+id/tv_task5" />
+
+    <EditText
+        android:id="@+id/et_desc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/et_title"
+        app:layout_constraintStart_toStartOf="@+id/tv_task7"
+        app:layout_constraintTop_toBottomOf="@+id/tv_task7" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

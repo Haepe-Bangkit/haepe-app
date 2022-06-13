@@ -36,6 +36,13 @@ class MainActivity : AppCompatActivity() {
             ViewModelFactory(UserPreferences.getInstance(dataStore))
         )[MainViewModel::class.java]
 
+        mainViewModel.getUser().observe(this){user ->
+            if(user.isLogin){
+                startActivity(Intent(this,LoginActivity::class.java))
+                finish()
+            }
+        }
+
         binding.apply {
             ibCalendar.setOnClickListener{
                 startActivity(Intent(this@MainActivity, CalendarActivity::class.java))

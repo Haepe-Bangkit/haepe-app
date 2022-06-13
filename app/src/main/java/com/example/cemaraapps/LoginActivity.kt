@@ -94,13 +94,43 @@ class LoginActivity : AppCompatActivity() {
             val idTokenAuth = account.idToken.toString()
             Log.d("idTokenGoogleAuth", idTokenAuth)
             loginViewModel.setLogin(idTokenAuth) {
+                checkFamily{
                 updateUI(account)
+                }
             }
+
 
         } catch (e: ApiException) {
             Log.w(TAG, "signInResult:failed code = " + e.statusCode)
             updateUI(null)
         }
     }
+    private fun checkFamily(callback: () -> Unit){
 
+        loginViewModel.getUser().observe(this){user->
+
+        ApiConfig.getApiService().getFamily(user.idToken )
+            .enqueue(object : Callback<FamilyGetResponse> {
+            override fun onResponse(
+                call: Call<FamilyGetResponse>,
+                response: Response<FamilyGetResponse>
+            ) {
+                if (response.isSuccessful) {
+                    val family = response.body()
+                    if(family!=null&&family.status=="success"){
+
+                        family.data.members
+                        startActivity(Intent(this@LoginActivity,MainActivity::class.java))
+                        finish()
+                    }
+                        callback.invoke()
+                }
+            }
+
+            override fun onFailure(call: Call<FamilyGetResponse>, t: Throwable) {
+                Log.d(ContentValues.TAG, "onFailure: ${t.message.toString()}")
+            }
+        })
+        }
+    }
 }

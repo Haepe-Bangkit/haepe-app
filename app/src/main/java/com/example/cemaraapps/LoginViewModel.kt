@@ -50,11 +50,6 @@ class LoginViewModel (private val pref: UserPreferences) : ViewModel(){
 
     }
 
-    fun saveFamily(family: DataFamily) {
-        viewModelScope.launch {
-            pref.saveFamily(family)
-        }
-    }
     fun getUser(): LiveData<DataUser> {
         return pref.getUser().asLiveData()
     }

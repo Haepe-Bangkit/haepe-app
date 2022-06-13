@@ -7,6 +7,7 @@ import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import com.example.cemaraapps.model.DataFamily
 import com.example.cemaraapps.model.DataUser
+import com.example.cemaraapps.model.UserId
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
@@ -21,20 +22,19 @@ class UserPreferences private constructor(private val dataStore: DataStore<Prefe
             )
         }
     }
-    fun checkFamily(): Flow<DataFamily>{
+    fun getId(): Flow<UserId> {
         return dataStore.data.map {
-            DataFamily(
-                it[familyId_KEY] ?: false
-                    )
+            UserId(
+                it[IdUser_KEY] ?: ""
+            )
         }
     }
-
-    suspend fun saveFamily(family: DataFamily){
+    suspend fun saveUserId(user: UserId) {
         dataStore.edit {
-            it[familyId_KEY] = family.familyId
+            it[IdUser_KEY] = user.userId
+
         }
     }
-
     suspend fun saveUser(user: DataUser) {
         dataStore.edit {
             it[IdToken_KEY] = user.idToken
@@ -47,6 +47,7 @@ class UserPreferences private constructor(private val dataStore: DataStore<Prefe
         dataStore.edit {
             it[IdToken_KEY] = ""
             it[isLogin_KEY] = false
+            it[IdUser_KEY]  = ""
         }
     }
 
@@ -57,6 +58,7 @@ class UserPreferences private constructor(private val dataStore: DataStore<Prefe
         private val IdToken_KEY = stringPreferencesKey("IdToken")
         private val familyId_KEY = booleanPreferencesKey("familyId")
         private val isLogin_KEY = booleanPreferencesKey("isLogin")
+        private val IdUser_KEY = stringPreferencesKey("IdToken")
 
         fun getInstance(dataStore: DataStore<Preferences>): UserPreferences {
             return INSTANCE ?: synchronized(this) {
