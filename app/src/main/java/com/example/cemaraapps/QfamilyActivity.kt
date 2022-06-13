@@ -152,7 +152,7 @@ class QfamilyActivity : AppCompatActivity() {
                                         Toast.makeText(this@QfamilyActivity, responseBody.message, Toast.LENGTH_SHORT).show()
                                     }
                                 } else {
-                                    Toast.makeText(this@QfamilyActivity, "gagal menambahkan family", Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(this@QfamilyActivity, "berhasil menambahkan family", Toast.LENGTH_SHORT).show()
                                 }
                             }
 

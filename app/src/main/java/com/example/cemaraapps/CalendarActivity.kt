@@ -47,7 +47,7 @@ class CalendarActivity : AppCompatActivity() {
                 val sdf = SimpleDateFormat(myFormat, Locale.US)
                 val tanggal = sdf.format(cal.time)
 
-                intent = Intent(this@CalendarActivity, TaskActivity::class.java)
+                val intent = Intent(this@CalendarActivity, TaskActivity::class.java)
                 intent.putExtra(EXTRA_DATE, tanggal)
                 startActivity(intent)
             }

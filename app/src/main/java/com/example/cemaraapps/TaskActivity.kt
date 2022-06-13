@@ -23,13 +23,16 @@ import retrofit2.Response
 import java.util.*
 
 private val Context.dataStore: DataStore<Preferences> by preferencesDataStore("settings")
+
 class TaskActivity : AppCompatActivity() {
     private lateinit var binding: ActivityTaskBinding
     private lateinit var taskActivityViewModel: TaskActivityViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTaskBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         taskActivityViewModel = ViewModelProvider(
             this,
             ViewModelFactory(UserPreferences.getInstance(dataStore))
@@ -64,10 +67,7 @@ class TaskActivity : AppCompatActivity() {
 
             btnNextAddTask.setOnClickListener {
 
-                getMember{
-                    createTask(taskActivityViewModel.getUserId().value.toString())
-            }
-
+                createTask("115299601309963900866")
                 Toast.makeText(applicationContext, "Lanjutkan untuk membuat task", Toast.LENGTH_SHORT).show()
 
                 super.onBackPressed()
@@ -77,13 +77,15 @@ class TaskActivity : AppCompatActivity() {
     }
 
     private fun createTask(idMember:String) {
-            taskActivityViewModel.getUser().observe(this){ user->
 
-                binding.etDate.text = intent.getStringExtra(EXTRA_DATE).toString()+"T"
                 val summary = binding.etTitle.text.toString()
                 val description = binding.etDesc.text.toString()
                 val startTime = binding.etDate.text.toString()+binding.etStart.text.toString()
                 val endTime = binding.etDate.text.toString()+binding.etEnd.text.toString()
+
+            taskActivityViewModel.getUser().observe(this){ user->
+
+                binding.etDate.text = intent.getStringExtra(EXTRA_DATE).toString()+"T"
                 ApiConfig.getApiService().createEvent("Bearer ${user.idToken}",startTime,endTime,summary,description,idMember)
                 .enqueue(object : Callback<CreateEventResponse> {
 
@@ -107,13 +109,6 @@ class TaskActivity : AppCompatActivity() {
 
                 })
             }
-    }
-
-    private fun getMember(callback: () -> Unit) {
-        taskActivityViewModel.getUser().observe(this){user->
-            taskActivityViewModel.getFamily(user.idToken)
-            callback.invoke()
-        }
     }
 
 
